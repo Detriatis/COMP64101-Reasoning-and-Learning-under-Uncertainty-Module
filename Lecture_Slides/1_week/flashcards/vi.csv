@@ -1,0 +1,35 @@
+ What does Variational Inference (VI) reduce posterior inference to?	 Optimization	 VI, Intro
+ In VI, what are the three components considered in a model?	 Unknown (latent) variables (z), known variables (x), fixed parameters (θ)	 VI, Intro
+ What is the goal of VI in regards to posterior inference?	 To approximate the posterior distribution because it's intractable to compute.	 VI, Intro
+ What is the KL divergence used for in VI?	 To measure the difference between the approximate posterior q(z) and the true posterior p(z|x)	 VI, Intro
+ How do we practically handle the intractable posterior?	 By picking a parametric family Q with variational parameters, call ψ.	 VI, Introduction
+ What is the variational free energy in VI?	 A function we minimize to find the approximate posterior (or equivalently, maximise ELBO).	 VI, ELBO
+ What does ELBO stand for?	 Evidence Lower Bound	 VI, ELBO
+ How is the ELBO related to the true log-evidence?	 It's a lower bound, i.e., L(θ,ψ|x) <= log p(x).	 VI, ELBO
+ What is the first term in the ELBO equation?	 The expected log joint, E[log p(x,z)]	 VI, ELBO
+ What does the entropy term in ELBO encourage?	 The posterior to have maximum entropy.	 VI, ELBO
+ What does the KL term in ELBO act as?	 A regularizer, preventing the posterior from diverging too much from the prior.	 VI, ELBO
+ Describe Fixed-form VI.	 Picking a convenient functional form for the variational distribution (e.g., multivariate Gaussian) and optimizing the ELBO.	 VI, Approaches
+ Describe Free-form VI.	 Making the mean-field assumption that the posterior factorizes into independent distributions.	 VI, Approaches
+ What is the mean-field assumption?	 The posterior factorizes as q_ψ(z) = Π q_j(z_j)	 VI, Mean-Field
+ In Free-form VI, what do we derive from maximizing the ELBO wrt each group of variational parameters one at a time?	 Optimal distribution form.	 VI, Free-Form
+" What does it mean if the approximate posterior has a ""full covariance matrix""?"	 It can match the exact posterior but is intractable in high dimensions.	 VI, Example
+" What happens when a ""diagonal covariance matrix"" is used in VI?"	 The approximation is often overconfident.	 VI, Example
+ How do we maximize likelihood in the presence of latent variables and parameters	 By maximizing the ELBO	 VI, Parameter Estimation
+ What does the Variational EM algorithm alternate between?	 Maximizing the ELBO wrt variational parameters (E-step) and maximizing the ELBO wrt model parameters (M-step).	 VI, Parameter Estimation
+ What is the alternative to Variational EM algorithm when it comes to parameter estimation?	 Stochastic VI	 VI, Parameter Estimation
+ What do we do when using the gradient-based methods for VI?	 We choose a convenient form for the approximation and optimize the ELBO using gradient-based methods	 VI, Gradients
+ When using SGD in VI, what do you need?	 An unbiased estimate of the gradient of the ELBO	 VI, Gradients
+ How are generative parameters updated in gradient based methods for VI?	 By pushing gradients inside the expectation with a single Monte Carlo sample.	 VI, Gradients
+ Why do we use Reparameterization in gradient descent for inference parameters?	 Because we cannot push gradients inside the expectation with regular Monte Carlo approximation.	 VI, RVI
+ What is reparameterization trick?	 Rewriting z ~ qψ(z) as differentiable transformation of epsilon ~ p(epsilon), i.e. z = h(ψ, x, ϵ).	 VI, RVI
+ What are two advantages of using a reparameterization trick?	 1. Allows us to push gradients inside the expectation. 2. Change of variables formula	 VI, RVI
+ What does the score function estimator allows us to do in VI?	 Estimate the gradient of ELBO when we cannot compute it analytically.	 VI, Blackbox
+ What does the BBVI method allow you to compute?	 A Monte Carlo approximation to gradient based on the score function estimator.	 VI, Blackbox
+ What does CAVI stand for?	 Coordinate Ascent Variational Inference	 VI, CAVI
+ What does CAVI allow us to do?	 Optimize each variable by using a mean field approximation scheme	 VI, CAVI
+ When using CAVI, what is the convergence guarantee?	 The ELBO is guaranteed to converge since the bound is concave wrt each factor qj.	 VI, CAVI
+ What are variational bayes in regards to variational inference?	 We treat the parameters as latent variables and maximize the ELBO over all latent and parameter variables	 VI, Variational Bayes
+ In variational Bayes, what do we assume in regards to the variational posterior?	 We assume that the variational posterior factorizes.	 VI, Variational Bayes
+ What are some problems with lower bound maximization in standard VI?	 It leads to zero-forcing behavior, which means the approximate posterior can be too compact.	 VI, Goodies
+ What do we minimize in order to avoid the zero-forcing behavior?	 DKL(p||q).	 VI, Goodies

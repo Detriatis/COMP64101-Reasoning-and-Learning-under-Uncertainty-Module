@@ -1,0 +1,12 @@
+" What is ""generalisation"" in deep learning?"	 Performance on out-of-sample data (training or testing data).	
+ What should ideally hold for generalisation?	 Guarantees of predictive performance that hold at the distribution level.	
+ What are two key settings in generalisation?	 In-distribution and out-of-distribution	
+ What setting of generalisation has the same distribution for training, test, and future data?	 In-distribution generalisation	
+ What setting of generalisation has a different distribution for future data than for training/testing data?	 Out-of-distribution generalisation	
+" What is ""mode connectivity""?"	 The observation that independently trained SGD solutions can be connected by a curve of near-zero loss	
+ What does N_eff represent?	 Effective dimensionality of a model.	
+ What does λi represent in the equation for N_eff?	 Eigenvalues of the Hessian matrix.	
+ What did Zhang et al. (2017) find out about CNNs?	 They can fit CIFAR-10 with random labels but still generalize well on the clean test set.	
+ What kind of bounds are PAC-Bayes bounds?	 A kind of statistical learning bounds (a.k.a., generalization bounds, risk bounds).	
+" What does ""certification"" refer to in PAC-Bayes framework?"	 Evaluating a bound value for a randomized classifier.	
+" What does ""optimisation"" refer to in PAC-Bayes framework?"	 Using the bounds as a learning objective	

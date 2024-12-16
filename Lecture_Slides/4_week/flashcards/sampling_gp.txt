@@ -1,0 +1,10 @@
+Front: What is the most common kernel for a GP?
+Back: RBF/Squared-exponential/exponentiated quadratic
+Front: What are the two parameters of the RBF kernel and what do they mean?
+Back: sf (variance parameter) and l (length-scale parameter).
+Front: If sf=1 and l=1 for an RBF kernel what is k(x,x')?
+Back: exp(-1/2 * (x-x')²)
+Front: How do we obtain the mean vector when sampling from a GP?
+Back: From the mean function.
+Front: How do we obtain the covariance matrix when sampling from a GP?
+Back: From the covariance function.

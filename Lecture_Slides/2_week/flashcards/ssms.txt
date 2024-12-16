@@ -1,0 +1,42 @@
+Front: What is a State Space Model (SSM)?
+Back: A model that describes a system using latent variables that evolve over time and are observed through a noisy process.
+Tags: SSMs, Intro
+Front: What are the three main components of an SSM?
+Back: hidden (latent) state, observations and optional inputs.
+Tags: SSMs, Intro
+Front: What is "state estimation" in the context of SSMs?
+Back: Posterior inference about the hidden states.
+Tags: SSMs, State Estimation
+Front: What is "filtering" in the context of SSMs?
+Back: Estimating the hidden states sequentially using past observations.
+Tags: SSMs, Filtering
+Front: What is "smoothing" in the context of SSMs?
+Back: Estimating the hidden states using past and future observations (offline).
+Tags: SSMs, Smoothing
+Front: What is the goal of the Bayes filter?
+Back: Recursively compute beliefs about the hidden states.
+Tags: SSMs, Filtering
+Front: What type of data the Bayes filter use?
+Back: Online data stream.
+Tags: SSMs, Filtering
+Front: What is the prediction step in Bayes filter based on?
+Back: The Chapman-Kolmogorov equation.
+Tags: SSMs, Filtering, Prediction
+Front: What is computed in the update step of the Bayes filter?
+Back: The posterior using the observation.
+Tags: SSMs, Filtering, Update
+Front: What are FFBS used for?
+Back: Combining Filtering (forward pass) with smoothing (backward pass)
+Tags: SSMs, Smoothing, FFBS
+Front: What is computed in the forward pass in the smoothing equations?
+Back: The filter of the system.
+Tags: SSMs, Smoothing
+Front: What is computed in the backward pass in smoothing equations?
+Back: The smoothing distributions.
+Tags: SSMs, Smoothing
+Front: What does the term Gaussian Ansatz refer to?
+Back: the assumption that we can work with gaussian distributions
+Tags: SSMs, Gaussian Ansatz
+Front: What is considered in the linear-Gaussian model?
+Back: The functions that are related to the SSM are linear and noise is Gaussian.
+Tags: SSMs, Gaussian Ansatz

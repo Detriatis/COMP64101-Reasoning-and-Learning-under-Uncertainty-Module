@@ -1,0 +1,12 @@
+Front: What is loopy belief propagation?
+Back: An approximation algorithm that applies belief propagation to graphs that contain loops.
+Tags: Message Passing, Loopy BP
+Front: What is variable elimination?
+Back: An inference algorithm that simplifies a factor graph.
+Tags: Message Passing, VE
+Front: What does junction tree algorithm do?
+Back: Creates a tree from a general graph to apply belief propagation.
+Tags: Message Passing, JTA
+Front: How is inference treated with regards to optimization?
+Back: An approach that uses message passing to optimize parameters
+Tags: Message Passing, Optimization

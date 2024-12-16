@@ -1,0 +1,24 @@
+Front: What type of graphs do Message passing algorithms work best on?
+Back: Sparse graphs
+Tags: Message Passing, Intro
+Front: What do message passing algorithms leverage for efficient posterior inference?
+Back: CI properties encoded in the graph.
+Tags: Message Passing, Intro
+Front: On what principle are message passing algorithms based?
+Back: Dynamic programming.
+Tags: Message Passing, Intro
+Front: What is the main principle of Dynamic Programming?
+Back: Finding the global solution by finding local solutions to sub-problems.
+Tags: Message Passing, Intro
+Front: What do message passing algorithms maintain on nodes?
+Back: Probability distributions (beliefs).
+Tags: Message Passing, Intro
+Front: How do nodes update beliefs in a message passing algorithm?
+Back: Given evidence from some part of the graph
+Tags: Message Passing, Intro
+Front: What is passed between nodes in a message passing algorithm?
+Back: Beliefs
+Tags: Message Passing, Intro
+Front: What are message passing algorithms also known as?
+Back: Belief propagation (BP) algorithms.
+Tags: Message Passing, Intro

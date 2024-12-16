@@ -1,0 +1,54 @@
+Front: What are Monte Carlo methods?
+Back: Stochastic approaches for solving numerical integration problems.
+Tags: MC, Intro
+Front: What is the general idea of Monte Carlo integration?
+Back: To approximate an integral by averaging function values at random samples.
+Tags: MC, Intro
+Front: What is the Monte Carlo approximation of an expectation?
+Back: 1/Ns * sum from n=1 to Ns of φ(x_n) where x_n is a sample drawn from pi(x)
+Tags: MC, Integration
+Front: What is a key advantage of Monte Carlo Integration?
+Back: Its accuracy is independent of the dimensionality of x.
+Tags: MC, Integration
+Front: Why is the importance sampling algorithm needed?
+Back: It is hard to sample from the target distribution directly
+Tags: MC, Importance Sampling
+Front: In importance sampling, from where do we obtain samples?
+Back: From a proposal distribution, q(x)
+Tags: MC, Importance Sampling
+Front: In importance sampling, how do we account for inaccuracy of using proposal distribution?
+Back: By associating weights with each sample.
+Tags: MC, Importance Sampling
+Front: What is a requirement for the proposal distribution in importance sampling?
+Back: Its support must cover the support of the target distribution, supp(q) ⊇ supp(π)
+Tags: MC, Direct Importance Sampling
+Front: What is Direct Importance Sampling?
+Back: When the target distribution can be evaluated analytically but not sampled directly from
+Tags: MC, Direct Importance Sampling
+Front: What are the weights associated with the samples in Direct Importance Sampling?
+Back: They are given by π(xn) / q(xn).
+Tags: MC, Direct Importance Sampling
+Front: What is self-normalized importance sampling used for?
+Back: Used when we can only evaluate the unnormalized target distribution
+Tags: MC, Self-Normalized
+Front: What does the self-normalized method approximate with importance sampling?
+Back: the normalization constant
+Tags: MC, Self-Normalized
+Front: What happens to the bias of the estimator in self normalized Importance sampling as the number of samples increases?
+Back: It goes to zero under some weak assumptions
+Tags: MC, Self-Normalized
+Front: How can a good proposal be learned for importance sampling?
+Back: By optimizing the ELBO
+Tags: MC, Proposal
+Front: What is the standard error in a Monte Carlo Estimate?
+Back: O(1/sqrt(S)). S is the number of (independent) samples
+Tags: MC, Variance
+Front: How can we reduce the variance in MC estimates?
+Back: By using Rao-Blackwellization
+Tags: MC, Rao-Blackwellization
+Front: When using Rao-Blackwellization, what do you need to be able to do?
+Back: Analytically marginalize out some variables
+Tags: MC, Rao-Blackwellization
+Front: Does the Rao-Blackwellization change bias?
+Back: No, it's unbiased and has lower variance
+Tags: MC, Rao-Blackwellization

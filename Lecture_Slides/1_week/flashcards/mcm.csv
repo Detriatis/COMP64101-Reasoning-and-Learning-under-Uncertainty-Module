@@ -1,0 +1,18 @@
+ What are Monte Carlo methods?	 Stochastic approaches for solving numerical integration problems.	 MC, Intro
+ What is the general idea of Monte Carlo integration?	 To approximate an integral by averaging function values at random samples.	 MC, Intro
+ What is the Monte Carlo approximation of an expectation?	 1/Ns * sum from n=1 to Ns of φ(x_n) where x_n is a sample drawn from pi(x)	 MC, Integration
+ What is a key advantage of Monte Carlo Integration?	 Its accuracy is independent of the dimensionality of x.	 MC, Integration
+ Why is the importance sampling algorithm needed?	 It is hard to sample from the target distribution directly	 MC, Importance Sampling
+ In importance sampling, from where do we obtain samples?	 From a proposal distribution, q(x)	 MC, Importance Sampling
+ In importance sampling, how do we account for inaccuracy of using proposal distribution?	 By associating weights with each sample.	 MC, Importance Sampling
+ What is a requirement for the proposal distribution in importance sampling?	 Its support must cover the support of the target distribution, supp(q) ⊇ supp(π)	 MC, Direct Importance Sampling
+ What is Direct Importance Sampling?	 When the target distribution can be evaluated analytically but not sampled directly from	 MC, Direct Importance Sampling
+ What are the weights associated with the samples in Direct Importance Sampling?	 They are given by π(xn) / q(xn).	 MC, Direct Importance Sampling
+ What is self-normalized importance sampling used for?	 Used when we can only evaluate the unnormalized target distribution	 MC, Self-Normalized
+ What does the self-normalized method approximate with importance sampling?	 the normalization constant	 MC, Self-Normalized
+ What happens to the bias of the estimator in self normalized Importance sampling as the number of samples increases?	 It goes to zero under some weak assumptions	 MC, Self-Normalized
+ How can a good proposal be learned for importance sampling?	 By optimizing the ELBO	 MC, Proposal
+ What is the standard error in a Monte Carlo Estimate?	 O(1/sqrt(S)). S is the number of (independent) samples	 MC, Variance
+ How can we reduce the variance in MC estimates?	 By using Rao-Blackwellization	 MC, Rao-Blackwellization
+ When using Rao-Blackwellization, what do you need to be able to do?	 Analytically marginalize out some variables	 MC, Rao-Blackwellization
+ Does the Rao-Blackwellization change bias?	 No, it's unbiased and has lower variance	 MC, Rao-Blackwellization

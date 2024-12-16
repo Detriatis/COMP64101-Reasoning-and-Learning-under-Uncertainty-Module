@@ -1,0 +1,9 @@
+ What are two main properties of the univariate Gaussian distribution (Normal distribution) that make it convenient mathematically?	 Central limit theorem, family is closed under linear operations, uncorrelated implies independent.	
+ What are the two parameters needed to define a univariate Gaussian distribution?	 Mean (μ) and Variance (σ²)	
+ Write down the PDF for a univariate Gaussian distribution.	 fy(y) = (1 / √2πσ²) * exp(-(y - μ)² / 2σ²)	
+ Is the CDF of a univariate Gaussian distribution known in closed form?	 No	
+ What are two parameters needed to define a multivariate Gaussian distribution?	 Mean vector (μ) and Covariance matrix (Σ)	
+ What is the formula for the pdf of a d-dimensional multivariate Gaussian distribution?	 f(y | μ, Σ) = |Σ| ^(-1/2) * (2π)^(-d/2) * exp(-(1/2) * (y - μ)ᵀΣ⁻¹(y - μ))	
+ In a bivariate Gaussian (d=2), what does σ²ᵢ represent?	 The variance of Yi	
+ In a bivariate Gaussian, what does ρᵢⱼσᵢσⱼ represent?	 The covariance between Yi and Yj	
+ In a bivariate Gaussian, what does ρ₁₂ represent when i≠j?	 Correlation between Y1 and Y2	

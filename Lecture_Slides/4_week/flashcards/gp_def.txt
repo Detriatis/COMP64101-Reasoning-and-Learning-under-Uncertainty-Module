@@ -1,0 +1,18 @@
+Front: What is a stochastic process?
+Back: A collection of random variables indexed by some variable x ∈ X.
+Front: If y = {y(x): x ∈ X}, where do the y(x) usually belong to?
+Back: R.
+Front: If y = {y(x): x ∈ X}, where does X usually belong to?
+Back: Rⁿ
+Front: How can we think of y(x)?
+Back: A function of x.
+Front: If |X|=∞, what is y?
+Back: An infinite-dimensional process.
+Front: What are FDDs?
+Back: Finite-Dimensional Distributions
+Front: What type of FDDs does a Gaussian process have?
+Back: Gaussian
+Front: What notation is used to denote the finite dimensional distribution in a Gaussian process?
+Back: (y(x₁),..., y(xn)) ~ Nn(μ, Σ)
+Front: How do we denote that the function y is a GP?
+Back: y(·) ~ GP

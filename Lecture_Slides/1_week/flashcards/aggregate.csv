@@ -1,0 +1,76 @@
+ What are Monte Carlo methods?	 Stochastic approaches for solving numerical integration problems.	 MC, Intro
+ What is the general idea of Monte Carlo integration?	 To approximate an integral by averaging function values at random samples.	 MC, Intro
+ What is the Monte Carlo approximation of an expectation?	 1/Ns * sum from n=1 to Ns of φ(x_n) where x_n is a sample drawn from pi(x)	 MC, Integration
+ What is a key advantage of Monte Carlo Integration?	 Its accuracy is independent of the dimensionality of x.	 MC, Integration
+ Why is the importance sampling algorithm needed?	 It is hard to sample from the target distribution directly	 MC, Importance Sampling
+ In importance sampling, from where do we obtain samples?	 From a proposal distribution, q(x)	 MC, Importance Sampling
+ In importance sampling, how do we account for inaccuracy of using proposal distribution?	 By associating weights with each sample.	 MC, Importance Sampling
+ What is a requirement for the proposal distribution in importance sampling?	 Its support must cover the support of the target distribution, supp(q) ⊇ supp(π)	 MC, Direct Importance Sampling
+ What is Direct Importance Sampling?	 When the target distribution can be evaluated analytically but not sampled directly from	 MC, Direct Importance Sampling
+ What are the weights associated with the samples in Direct Importance Sampling?	 They are given by π(xn) / q(xn).	 MC, Direct Importance Sampling
+ What is self-normalized importance sampling used for?	 Used when we can only evaluate the unnormalized target distribution	 MC, Self-Normalized
+ What does the self-normalized method approximate with importance sampling?	 the normalization constant	 MC, Self-Normalized
+ What happens to the bias of the estimator in self normalized Importance sampling as the number of samples increases?	 It goes to zero under some weak assumptions	 MC, Self-Normalized
+ How can a good proposal be learned for importance sampling?	 By optimizing the ELBO	 MC, Proposal
+ What is the standard error in a Monte Carlo Estimate?	 O(1/sqrt(S)). S is the number of (independent) samples	 MC, Variance
+ How can we reduce the variance in MC estimates?	 By using Rao-Blackwellization	 MC, Rao-Blackwellization
+ When using Rao-Blackwellization, what do you need to be able to do?	 Analytically marginalize out some variables	 MC, Rao-Blackwellization
+ Does the Rao-Blackwellization change bias?	 No, it's unbiased and has lower variance	 MC, Rao-Blackwellization
+ What is a key use of MCMC methods?	 Sampling from high-dimensional distributions.	 MCMC, Intro
+ What is a key part of the MCMC algorithm construction?	 Construct a Markov chain whose stationary distribution is the target density.	 MCMC, Intro
+" In MCMC, what is a ""random walk""?"	 We perform a random walk on the state space so that the fraction of time we spend in each state is proportional to the target distribution.	 MCMC, Intro
+" What does the ""mixing time"" in MCMC refer to?"	 The time it takes for the Markov chain to reach stationarity.	 MCMC, Intro
+ In MCMC, what do you do with the initial samples of the chain?	 Discard them because they do not come from the stationary distribution.	 MCMC, Intro
+ What does the Metropolis Hastings Algorithm allow you to do?	 Generate samples from a target distribution using a proposal distribution	 MCMC, MH
+ What is the key principle of Metropolis Hastings algorithm?	 Decide whether to accept a new proposal or reject it based on acceptance probability	 MCMC, MH
+ If a proposed state is more likely than the current state, will it always be accepted in MH Algorithm?	 Yes	 MCMC, MH
+ What does symmetric proposal in MH mean?	 q(x' | x) = q(x | x').	 MCMC, MH
+ What is acceptance probability in Metropolis Hastings algorithm?	 min(1, pi(x')/pi(x)).	 MCMC, MH
+ What is needed in the MH algorithm if the proposal is asymmetric?	 Hastings Correction	 MCMC, MH
+ What does Hastings correction take into account?	 The proposal distribution and target distribution	 MCMC, MH
+ How does the Gibbs Sampling improve upon MH?	 By automatically creating a good proposal distribution, with acceptance probability always 1.	 MCMC, Gibbs Sampling
+ What does Gibbs sampling exploit?	 Conditional independence of the distribution.	 MCMC, Gibbs Sampling
+ What does the full conditional refer to in Gibbs sampling?	 the conditional distribution of a variable given all other variables in the model.	 MCMC, Gibbs Sampling
+ In Gibbs sampling, what variables are updated at each step?	 Only one variable at each time.	 MCMC, Gibbs Sampling
+ What should we do if we cannot sample from a full conditional distribution when using Gibbs Sampling?	 We can use Metropolis Within Gibbs, by using a proposal distribution q.	 MCMC, Metropolis Within Gibbs
+ What does Hamiltonian Monte Carlo (HMC) use?	 Gradient information to guide the local moves.	 MCMC, HMC
+" In MCMC, what does ""burn-in phase"" refer to?"	 Initial period where the samples will be ignored.	 MCMC, Convergence
+ Why do we need to plot trace plots in MCMC?	 To check if the method has converged	 MCMC, Convergence
+ When you plot trace plots, what are you looking for?	 That plots converge to the same distribution, i.e., the chains are mixing	 MCMC, Convergence
+ Is it sufficient for MCMC chain to have reached its stationary distribution?	 No, we must also consider the fact that the samples are not independent and hence a lot of samples are needed	 MCMC, Convergence
+ What is an important term when evaluating results of a MCMC?	 Effective sample size	 MCMC, Convergence
+ What does Variational Inference (VI) reduce posterior inference to?	 Optimization	 VI, Intro
+ In VI, what are the three components considered in a model?	 Unknown (latent) variables (z), known variables (x), fixed parameters (θ)	 VI, Intro
+ What is the goal of VI in regards to posterior inference?	 To approximate the posterior distribution because it's intractable to compute.	 VI, Intro
+ What is the KL divergence used for in VI?	 To measure the difference between the approximate posterior q(z) and the true posterior p(z|x)	 VI, Intro
+ How do we practically handle the intractable posterior?	 By picking a parametric family Q with variational parameters, call ψ.	 VI, Introduction
+ What is the variational free energy in VI?	 A function we minimize to find the approximate posterior (or equivalently, maximise ELBO).	 VI, ELBO
+ What does ELBO stand for?	 Evidence Lower Bound	 VI, ELBO
+ How is the ELBO related to the true log-evidence?	 It's a lower bound, i.e., L(θ,ψ|x) <= log p(x).	 VI, ELBO
+ What is the first term in the ELBO equation?	 The expected log joint, E[log p(x,z)]	 VI, ELBO
+ What does the entropy term in ELBO encourage?	 The posterior to have maximum entropy.	 VI, ELBO
+ What does the KL term in ELBO act as?	 A regularizer, preventing the posterior from diverging too much from the prior.	 VI, ELBO
+ Describe Fixed-form VI.	 Picking a convenient functional form for the variational distribution (e.g., multivariate Gaussian) and optimizing the ELBO.	 VI, Approaches
+ Describe Free-form VI.	 Making the mean-field assumption that the posterior factorizes into independent distributions.	 VI, Approaches
+ What is the mean-field assumption?	 The posterior factorizes as q_ψ(z) = Π q_j(z_j)	 VI, Mean-Field
+ In Free-form VI, what do we derive from maximizing the ELBO wrt each group of variational parameters one at a time?	 Optimal distribution form.	 VI, Free-Form
+" What does it mean if the approximate posterior has a ""full covariance matrix""?"	 It can match the exact posterior but is intractable in high dimensions.	 VI, Example
+" What happens when a ""diagonal covariance matrix"" is used in VI?"	 The approximation is often overconfident.	 VI, Example
+ How do we maximize likelihood in the presence of latent variables and parameters	 By maximizing the ELBO	 VI, Parameter Estimation
+ What does the Variational EM algorithm alternate between?	 Maximizing the ELBO wrt variational parameters (E-step) and maximizing the ELBO wrt model parameters (M-step).	 VI, Parameter Estimation
+ What is the alternative to Variational EM algorithm when it comes to parameter estimation?	 Stochastic VI	 VI, Parameter Estimation
+ What do we do when using the gradient-based methods for VI?	 We choose a convenient form for the approximation and optimize the ELBO using gradient-based methods	 VI, Gradients
+ When using SGD in VI, what do you need?	 An unbiased estimate of the gradient of the ELBO	 VI, Gradients
+ How are generative parameters updated in gradient based methods for VI?	 By pushing gradients inside the expectation with a single Monte Carlo sample.	 VI, Gradients
+ Why do we use Reparameterization in gradient descent for inference parameters?	 Because we cannot push gradients inside the expectation with regular Monte Carlo approximation.	 VI, RVI
+ What is reparameterization trick?	 Rewriting z ~ qψ(z) as differentiable transformation of epsilon ~ p(epsilon), i.e. z = h(ψ, x, ϵ).	 VI, RVI
+ What are two advantages of using a reparameterization trick?	 1. Allows us to push gradients inside the expectation. 2. Change of variables formula	 VI, RVI
+ What does the score function estimator allows us to do in VI?	 Estimate the gradient of ELBO when we cannot compute it analytically.	 VI, Blackbox
+ What does the BBVI method allow you to compute?	 A Monte Carlo approximation to gradient based on the score function estimator.	 VI, Blackbox
+ What does CAVI stand for?	 Coordinate Ascent Variational Inference	 VI, CAVI
+ What does CAVI allow us to do?	 Optimize each variable by using a mean field approximation scheme	 VI, CAVI
+ When using CAVI, what is the convergence guarantee?	 The ELBO is guaranteed to converge since the bound is concave wrt each factor qj.	 VI, CAVI
+ What are variational bayes in regards to variational inference?	 We treat the parameters as latent variables and maximize the ELBO over all latent and parameter variables	 VI, Variational Bayes
+ In variational Bayes, what do we assume in regards to the variational posterior?	 We assume that the variational posterior factorizes.	 VI, Variational Bayes
+ What are some problems with lower bound maximization in standard VI?	 It leads to zero-forcing behavior, which means the approximate posterior can be too compact.	 VI, Goodies
+ What do we minimize in order to avoid the zero-forcing behavior?	 DKL(p||q).	 VI, Goodies

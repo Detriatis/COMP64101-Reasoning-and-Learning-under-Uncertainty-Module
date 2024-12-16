@@ -1,0 +1,16 @@
+Front: What is one limitation for GPs in practice?
+Back: We don't usually know the true covariance function.
+Front: What are 3 common steps in selecting a covariance function for GPs?
+Back: Pick a covariance function from a small set, try a few, use empirical evaluation.
+Front: What do covariance functions often contain?
+Back: Hyper-parameters
+Front: What are three ways to tune hyper parameters?
+Back: Maximum likelihood, cross-validation, Bayes, expert judgement.
+Front: What is a popular method to estimate the hyperparameters of a covariance function?
+Back: Maximizing the log marginal likelihood.
+Front: What parameters do we need to compute log p(y|x)?
+Back: Kernel hyperparameters and the parameter σ (noise).
+Front: What is the computational complexity of standard GP training?
+Back: O(n³) (and O(n²) memory)
+Front: What are 3 methods to scale GPs?
+Back: Inducing inputs, efficient matrix-vector multiplications, random features.

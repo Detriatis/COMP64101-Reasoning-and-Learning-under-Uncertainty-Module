@@ -1,0 +1,3 @@
+ Why consider many possible parameter settings in BNNs, as opposed to only one, like in classical NNs?	 To improve accuracy and uncertainty representation, as many different settings can fit the data well but behave differently out-of-sample.	
+ What are two key choices to consider when building a Bayesian neural network?	 Prior distribution and likelihood.	
+ What is defined by choices of prior distribution and likelihood?	 The posterior distribution.	

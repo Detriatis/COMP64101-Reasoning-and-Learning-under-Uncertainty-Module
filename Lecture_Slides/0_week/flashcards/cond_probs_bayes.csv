@@ -1,0 +1,9 @@
+ Define conditional probability.	 P(A|B) = P(A ∩ B) / P(B)	
+ How can the joint probability be rewritten using conditional probability?	 P(A ∩ B) = P(A|B)P(B) = P(B|A)P(A)	
+ What does conditional probability measure?	 It measures how likely an event A is, given that event B has happened.	
+ State the law of total probability.	 If {Aᵢ} forms a partition of Ω, then P(B) = ΣᵢP(B|Aᵢ)P(Aᵢ)	
+ What does it mean for two events to be independent?	 P(A ∩ B) = P(A)P(B) or, equivalently, P(A|B) = P(A)	
+ What does it mean for two events to be conditionally independent given a third event?	 P(A ∩ B | C) = P(A | C)P(B | C)	
+ State Bayes' rule for events.	 P(E₁|E₂) = P(E₂|E₁)P(E₁) / P(E₂)	
+ State Bayes' rule for the discrete case.	 p(X = k | E) = [p(E | X = k)p(X = k)] / [Σₖ'p(E | X = k')p(X = k')]	
+ State Bayes' rule for the continuous case.	 p(x | E) = [p(E | x)p(x)] / [∫ₛ p(E | x')p(x')dx']	

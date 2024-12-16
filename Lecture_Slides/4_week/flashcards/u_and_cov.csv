@@ -1,0 +1,14 @@
+ To fully specify a Gaussian distribution what do we need?	 Mean and variance	
+ To fully specify a Gaussian process, what do we need?	 Mean and covariance functions	
+ What are the two common components of a Gaussian Process Notation like this  y(·) ~ GP(m(·),k(·,·))?	 Mean function m(·) and Covariance function k(·,·)	
+ What is the equation for the mean function, m(x)?	 E[y(x)] = m(x)	
+ What is the equation for the covariance function, k(x, x')?	 Cov(y(x), y(x')) = k(x, x')	
+ Give three examples of common mean functions.	 m(x) = 0, m(x) = const, m(x) = βTx	
+ What is another popular choice for a mean function?	 A neural network.	
+ What constraint is placed on k(x,x') (covariance function)?	 It must be a positive semi-definite function.	
+ What is a Gram matrix K?	 A matrix with Kij = k(xi, xj)	
+ What does it mean for a matrix to be positive semi-definite?	 For any vector u, uᵀKu ≥ 0.	
+ What are stationary processes?	 When covariance functions depend only on distance between locations i.e. k(x,x') = k(x - x')	
+ What are isotropic covariance functions?	 When Cov(y(x), y(x’)) = k(||x - x’||)	
+ What does the covariance function determine?	 The nature of the GP	
+ What does k determine about the functions?	 The hypothesis space/space of functions	

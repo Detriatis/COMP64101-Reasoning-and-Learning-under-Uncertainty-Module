@@ -1,0 +1,6 @@
+ In a Gaussian process what does k(x,x) represent?	 The variance of f(x)	
+ What does the Matérn covariance function look like in its most general form?	 k(x, x') = s(2^(1-v)/Γ(v)) * (√2v(x - x')/l)^v * Kv(√2v(x - x')/l)	
+ What is one of the uses of a Matérn covariance function?	 Modeling rough functions.	
+ What is the modified Bessel function of the second kind?	 Kv(·)	
+ List 2 methods that can used to build new kernels.	 Kernel addition or kernel multiplication.	
+ Can one compute the gradients for tuning the parameters in a GP?	 Yes	

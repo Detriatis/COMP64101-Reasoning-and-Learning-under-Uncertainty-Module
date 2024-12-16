@@ -1,0 +1,15 @@
+Front: What are Probabilistic Graphical Models (PGMs)?
+Back: Graph structures used to represent conditional dependencies and independencies in a set of random variables.
+Tags: PGMs, Intro
+Front: In a PGM, what do nodes represent?
+Back: Random variables.
+Tags: PGMs, Intro
+Front: In a PGM, what do edges represent?
+Back: Conditional dependence.
+Tags: PGMs, Intro
+Front: In a PGM, what does the lack of an edge represent?
+Back: Conditional independence (CI).
+Tags: PGMs, Intro
+Front: What are the main types of graphical models?
+Back: Directed, Undirected, and combinations of both.
+Tags: PGMs, Types

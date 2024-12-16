@@ -1,0 +1,14 @@
+ What is a State Space Model (SSM)?	 A model that describes a system using latent variables that evolve over time and are observed through a noisy process.	 SSMs, Intro
+ What are the three main components of an SSM?	 hidden (latent) state, observations and optional inputs.	 SSMs, Intro
+" What is ""state estimation"" in the context of SSMs?"	 Posterior inference about the hidden states.	 SSMs, State Estimation
+" What is ""filtering"" in the context of SSMs?"	 Estimating the hidden states sequentially using past observations.	 SSMs, Filtering
+" What is ""smoothing"" in the context of SSMs?"	 Estimating the hidden states using past and future observations (offline).	 SSMs, Smoothing
+ What is the goal of the Bayes filter?	 Recursively compute beliefs about the hidden states.	 SSMs, Filtering
+ What type of data the Bayes filter use?	 Online data stream.	 SSMs, Filtering
+ What is the prediction step in Bayes filter based on?	 The Chapman-Kolmogorov equation.	 SSMs, Filtering, Prediction
+ What is computed in the update step of the Bayes filter?	 The posterior using the observation.	 SSMs, Filtering, Update
+ What are FFBS used for?	 Combining Filtering (forward pass) with smoothing (backward pass)	 SSMs, Smoothing, FFBS
+ What is computed in the forward pass in the smoothing equations?	 The filter of the system.	 SSMs, Smoothing
+ What is computed in the backward pass in smoothing equations?	 The smoothing distributions.	 SSMs, Smoothing
+ What does the term Gaussian Ansatz refer to?	 the assumption that we can work with gaussian distributions	 SSMs, Gaussian Ansatz
+ What is considered in the linear-Gaussian model?	 The functions that are related to the SSM are linear and noise is Gaussian.	 SSMs, Gaussian Ansatz

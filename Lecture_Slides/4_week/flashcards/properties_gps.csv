@@ -1,0 +1,4 @@
+ What is one key property of Gaussian distributions that makes GPs useful?	 Sums of Gaussians are Gaussian, and marginal distributions of multivariate Gaussians are still Gaussian.	
+ Are conditional distributions of multivariate Gaussians still Gaussian?	 Yes	
+ If we condition on the FDDs of a GP, is the resulting distribution also Gaussian?	 Yes.	
+ Given the covariance of a set of points, how can we predict a new point?	 As a Gaussian distribution.	

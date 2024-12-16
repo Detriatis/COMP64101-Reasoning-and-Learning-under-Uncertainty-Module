@@ -1,0 +1,6 @@
+" What is ""Monte Carlo Dropout""?"	 Randomly sampling after training by dropping out units according to a Bernoulli distribution.	
+ What is SWA?	 Stochastic Weight Averaging	
+ What are mixtures in deep ensembles?	 Coefficients are non-negative and add up to 1.	
+ What are stacking in deep ensembles?	 Coefficients are non-negative but do not need to add up to 1.	
+ Where can you find the material for Hierarchical Bayesian neural networks?	 Murphy (2023), pp. 675 - 678	
+ Give three examples of techniques mentioned for Online inference	 Sequential Laplace, extended Kalman filtering, assumed density filtering, online variational inference	

@@ -1,0 +1,18 @@
+Front: Besides the function-space view, what is another way to introduce GPs?
+Back: Through Bayesian linear regression (weight-space view).
+Front: What does Bayesian linear regression specify as a prior distribution?
+Back: Over the weights, w
+Front: Given data X, y and weights w what is the likelihood?
+Back: N(y|Xw,σ²I)
+Front: What does a Bayesian approach do to the parameters?
+Back: Specifies a prior distribution
+Front: How can the model be made nonlinear with Bayesian linear regression?
+Back: Using basis functions.
+Front: What is the "kernel trick" in relation to linear regression?
+Back: Replacing inner products between vectors with k(x, x').
+Front: What is the basis function mapping to in the "kernel trick" context?
+Back: The infinite dimensional feature space.
+Front: When does the weight space view of a Gaussian process equivalent to the function space view?
+Back: When using a zero-mean Gaussian prior.
+Front: What is the connection between a GP and a linear model with basis functions?
+Back: It's equivalent as long as the GP has mean zero and covariance k(x, x') = φ(x)Σρφ(x')

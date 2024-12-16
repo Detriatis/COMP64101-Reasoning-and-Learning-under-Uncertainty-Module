@@ -1,0 +1,15 @@
+Front: To what other graph structures are message passing algorithms extended to?
+Back: Trees.
+Tags: Message Passing, Trees
+Front: Which methods does belief propagation in trees build from?
+Back: HMMs and Kalman smoothing.
+Tags: Message Passing, Trees
+Front: What are the two key algorithms for BP in trees?
+Back: Sum product and max product.
+Tags: Message Passing, Trees
+Front: What does the Sum-product algorithm compute in trees?
+Back: Marginal distributions.
+Tags: Message Passing, Trees, Sum-Product
+Front: What does the Max-product algorithm compute in trees?
+Back: The maximum a posteriori sequence of hidden states.
+Tags: Message Passing, Trees, Max-Product

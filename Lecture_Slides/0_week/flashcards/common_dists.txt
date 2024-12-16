@@ -1,0 +1,30 @@
+Front: What is the binomial distribution used for?
+Back: Modeling the number of successes in a fixed number of independent Bernoulli trials.
+Front: What is the categorical distribution used for?
+Back: Modeling the probability of a variable taking on one of K different categories.
+Front: What is the Poisson distribution used for?
+Back: Modeling the number of events occurring in a fixed interval of time if events occur at a constant rate and are independent.
+Front: What are the parameters of the Gamma distribution?
+Back: a and b, where a is a shape parameter and b is a rate parameter. The Gamma distribution has support on R+.
+Front: What is the Beta distribution used for?
+Back: Modeling a probability. The Beta distribution has support on the [0,1] interval.
+Front: What are the parameters of the Gaussian distribution?
+Back: μ (mean) and σ² (variance).
+Front: What is the central limit theorem?
+Back: The distribution of sample means from large samples tends towards a Gaussian distribution, regardless of the underlying distribution.
+Front: Why is the Gaussian distribution "not robust"?
+Back: Sensitive to outliers due to exponentially fast decaying tails.
+Front: Give examples of more robust distributions.
+Back: Laplace, Student t, Cauchy.
+Front: What are the parameters of the multivariate normal distribution?
+Back: μ (mean vector) and Σ (covariance matrix).
+Front: What are different forms of the covariance matrix in the multivariate Gaussian?
+Back: Full, Diagonal, and Spherical.
+Front: What is a mixture of Gaussian models (GMM)?
+Back: A probability distribution constructed as a weighted sum of multiple Gaussian distributions.
+Front: What is a Matrix Normal distribution used for?
+Back: Modeling matrix-valued random variables.
+Front: What is the Wishart distribution used for?
+Back: Modeling covariance matrices.
+Front: What is the Dirichlet distribution used for?
+Back: Modeling probability vectors (unit simplex).

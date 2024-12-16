@@ -1,0 +1,20 @@
+Front: What is a Markov chain?
+Back: A sequence of random variables where the probability of each future state depends only on the present state and not on past states.
+Front: State the Markov property.
+Back: P(xt+τ | x₁, ..., xt) = P(xt+τ | xt)
+Front: What is a Markov model?
+Back: A model based on the Markov property and can be described by the conditional probabilities of moving from one state to another.
+Front: What is a stationary Markov model?
+Back: A Markov model where the probability of transitions does not depend on time.
+Front: What is a finite-state Markov chain?
+Back: A Markov chain where the state space is finite.
+Front: What is a transition matrix?
+Back: A matrix that represents the probabilities of transitioning between states in a Markov chain.
+Front: What is a stochastic matrix?
+Back: A square matrix with non-negative entries such that the rows sum to 1.
+Front: What is an n-step transition matrix?
+Back: A transition matrix that represents transition probabilities over n steps.
+Front: State the Chapman-Kolmogorov equation.
+Back: Aij(m + n) = Σₖ Aᵢₖ(m)Aₖⱼ(n).
+Front: What does a Stationary distribution capture, and how is it denoted?
+Back: The long-term distribution over states; denoted by π.

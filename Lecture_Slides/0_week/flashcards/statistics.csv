@@ -1,0 +1,25 @@
+ How does statistics differ from probability theory?	 Probability theory models outcomes given known parameters, statistics infers unknown parameters given observations.	
+ What is Bayesian statistics?	 A framework for statistical inference that treats parameters as random variables and uses prior beliefs and observed data to compute posterior distributions.	
+ What does the posterior distribution capture?	 The probability distribution of the parameters given observed data and prior beliefs.	
+ What is a prior distribution?	 A probability distribution over parameters that represents our beliefs before observing the data.	
+ What is the likelihood?	 The probability of the observed data given a specific parameter value.	
+ What is the marginal likelihood?	 The probability of the observed data regardless of the value of parameters.	
+ What is a Maximum A Posteriori (MAP) estimate?	 The parameter value that maximizes the posterior distribution.	
+ How does MAP relate to Maximum Likelihood Estimation (MLE)?	 If a uniform prior is used in MAP, the MAP estimate becomes the MLE estimate.	
+ When is the EM algorithm used, and what does it stand for?	 Expectation Maximization, used when probability models involve missing data/hidden variables to find MLE or MAP estimates.	
+ What are Highest Density Regions (HDRs)?	 Parameter regions containing a specified percentage of the posterior probability mass with the narrowest interval for each percentage.	
+ What is the posterior predictive distribution?	 The probability distribution of a new outcome given the observed data.	
+ How does Bayesian inference avoid overfitting in ML problems?	 By integrating over the unknown parameters.	
+ What is frequentist statistics?	 A framework for statistical inference that treats parameters as fixed and uses sampling distributions to quantify uncertainty.	
+ What is an estimator in frequentist statistics?	 A decision procedure that specifies the action to take when given some observed data.	
+ What is the sampling distribution?	 The distribution of an estimator if we repeat the experiment many times.	
+ What is the parametric bootstrap?	 Approximating the sampling distribution using the estimated parameters to resample new datasets.	
+ What does the asymptotic normality of the sampling distribution of the MLE state?	 The sampling distribution of the MLE converges to a Gaussian distribution with mean equal to the true parameter and precision equal to the Fisher Information matrix.	
+ What are some drawbacks of Frequentist Statistics?	 Can have counter-intuitive properties; and struggles to represent prior knowledge.	
+ What is a conjugate prior?	 A prior distribution where the posterior distribution is within the same family of distributions.	
+ Why are conjugate priors used?	 To simplify the computation of the posterior.	
+ What is a noninformative prior?	 A prior distribution that is designed to have a minimal effect on the posterior distribution.	
+ What are hierarchical priors?	 Priors that have their own prior distributions (hyperparameters).	
+ What is Empirical Bayes?	 An approach to setting the prior where the hyperparameters are first estimated using the data.	
+ Define model selection.	 The process of selecting the best model from a set of different models.	
+ Define model checking.	 Assessing the validity of a statistical model.	

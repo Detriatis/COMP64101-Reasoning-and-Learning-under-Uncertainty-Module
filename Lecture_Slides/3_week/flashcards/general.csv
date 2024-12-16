@@ -1,0 +1,6 @@
+" What does ""BNN"" stand for?"	 Bayesian Neural Network	
+ What is a core principle of BNNs?	 To represent a distribution over functions instead of a single function.	
+ Why are Bayesian methods sometimes preferred in deep learning?	 They are principled, generally interpretable, and may improve generalization.	
+ Why can Bayesian methods be less used sometimes?	 Computational expense	
+ What are the two main kinds of generalisation for BNNs?	 In-distribution and out-of-distribution generalisation	
+ What is the main difference between in- and out-of-distribution generalisation?	 The future data is drawn from the training/testing distribution (in) or from another (out)	

@@ -1,0 +1,8 @@
+" What does ""GP"" stand for?"	 Gaussian Process	
+ What are Gaussian processes also known as?	 Gaussian random fields	
+" Who introduced GPs under the name ""kriging""?"	 George Matheron	
+ What year were GPs first introduced?	 1960	
+" What field is ""kriging"" associated with?"	 Geostatistics	
+ What type of regression is a common application of GPs?	 Non-linear regression	
+ Besides regression, what other areas have GPs been applied to? (Multiple answers)	 Pattern classification, dimensionality reduction, multi-task learning, Bayesian optimization	
+ How do Gaussian processes generalize the multivariate Gaussian distribution?	 To the infinite-dimensional setting.	

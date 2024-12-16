@@ -1,0 +1,7 @@
+ Write the formula for the posterior distribution in BNNs.	 p(w|D, θ) = p(D|w, θ)p(w|θ) / p(D|θ)	
+ What is the numerator of the posterior formula?	 Likelihood times prior.	
+ What is the denominator of the posterior formula?	 Evidence (normalization).	
+ Write the formula for 'evidence', or the normalization term.	 p(D|θ) = ∫ p(D|w, θ)p(w|θ) dw	
+ In the case of supervised learning, what do we want to compute in BNNs?	 A posterior predictive distribution  p(y|x, D, θ).	
+ Name five methods for approximating posteriors in BNNs.	 Monte Carlo dropout, Laplace approximation, variational inference, expectation propagation, last layer methods.	
+ Name five more methods for approximating posteriors in BNNs.	 SNGP, MCMC methods, SGD trajectory based methods, Deep ensembles, Approximating the posterior predictive distribution, Tempered and cold posteriors	

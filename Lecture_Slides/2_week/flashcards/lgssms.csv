@@ -1,0 +1,18 @@
+ What is a linear-Gaussian SSM?	 A state-space model where the state transition and observation models are linear and have Gaussian noise.	 SSMs, Linear-Gaussian
+ What matrices and vectors define the linear model?	 Matrices Ft, Bt, Ht, Dt and vectors bt, dt.	 SSMs, Linear-Gaussian
+ What matrices define the Gaussian noise?	 The covariance matrices Qt and Rt.	 SSMs, Linear-Gaussian
+ What is the Kalman filter?	 An algorithm for exact Bayesian filtering for linear-Gaussian SSMs.	 SSMs, Kalman Filter
+ In the Kalman filter, what is performed in the prediction step?	 The one-step-ahead prediction for the hidden state.	 SSMs, Kalman Filter, Prediction
+" In the Kalman filter, what does the ""time update"" refer to?"	 The prediction step.	 SSMs, Kalman Filter, Prediction
+ What is the Kalman gain matrix?	 A weighting matrix used during the update step of the Kalman filter.	 SSMs, Kalman Filter, Update
+ In the Kalman filter, what is performed in the update step?	 The posterior given an observation.	 SSMs, Kalman Filter, Update
+" In the Kalman filter, what does ""measurement update"" refer to?"	 The update step.	 SSMs, Kalman Filter, Update
+" What is the ""residual error"" or ""innovation term""?"	 The difference between the observation and the prediction, yt - y_hat_t.	 SSMs, Kalman Filter, Update
+ What is the Kalman smoother (RTS smoother)?	 An algorithm for Bayesian smoothing for linear-Gaussian SSMs.	 SSMs, Kalman Smoother
+ What does RTS stand for?	 Rauch, Tung, and Striebel	 SSMs, Kalman Smoother
+ How are the distributions treated in the Kalman smoother?	 They are written in closed form	 SSMs, Kalman Smoother
+ What is the main goal of local linearization?	 Extend the Kalman filter and smoother to nonlinear systems.	 SSMs, Local Linearization
+ What does the extended Kalman filter use to address non-linear models?	 Linearize the dynamics and observations models using a first order Taylor expansion.	 SSMs, Local Linearization, EKF
+ What is the core idea of the extended Kalman filter?	 To approximate a non-stationary nonlinear dynamical system as a stationary linear one.	 SSMs, Local Linearization, EKF
+ What is required to apply local linearization?	 The system to be differentiable and invertible.	 SSMs, Local Linearization
+ What does the Jacobian allow us to do?	 Approximate the expectation of a non-linear function.	 SSMs, Local Linearization

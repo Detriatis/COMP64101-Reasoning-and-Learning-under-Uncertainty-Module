@@ -1,0 +1,72 @@
+ Besides the function-space view, what is another way to introduce GPs?	 Through Bayesian linear regression (weight-space view).	
+ What does Bayesian linear regression specify as a prior distribution?	 Over the weights, w	
+ Given data X, y and weights w what is the likelihood?	 N(y|Xw,σ²I)	
+ What does a Bayesian approach do to the parameters?	 Specifies a prior distribution	
+ How can the model be made nonlinear with Bayesian linear regression?	 Using basis functions.	
+" What is the ""kernel trick"" in relation to linear regression?"	 Replacing inner products between vectors with k(x, x').	
+" What is the basis function mapping to in the ""kernel trick"" context?"	 The infinite dimensional feature space.	
+ When does the weight space view of a Gaussian process equivalent to the function space view?	 When using a zero-mean Gaussian prior.	
+ What is the connection between a GP and a linear model with basis functions?	 It's equivalent as long as the GP has mean zero and covariance k(x, x') = φ(x)Σρφ(x')	
+" What does ""GP"" stand for?"	 Gaussian Process	
+ What are Gaussian processes also known as?	 Gaussian random fields	
+" Who introduced GPs under the name ""kriging""?"	 George Matheron	
+ What year were GPs first introduced?	 1960	
+" What field is ""kriging"" associated with?"	 Geostatistics	
+ What type of regression is a common application of GPs?	 Non-linear regression	
+ Besides regression, what other areas have GPs been applied to? (Multiple answers)	 Pattern classification, dimensionality reduction, multi-task learning, Bayesian optimization	
+ How do Gaussian processes generalize the multivariate Gaussian distribution?	 To the infinite-dimensional setting.	
+ What are two main properties of the univariate Gaussian distribution (Normal distribution) that make it convenient mathematically?	 Central limit theorem, family is closed under linear operations, uncorrelated implies independent.	
+ What are the two parameters needed to define a univariate Gaussian distribution?	 Mean (μ) and Variance (σ²)	
+ Write down the PDF for a univariate Gaussian distribution.	 fy(y) = (1 / √2πσ²) * exp(-(y - μ)² / 2σ²)	
+ Is the CDF of a univariate Gaussian distribution known in closed form?	 No	
+ What are two parameters needed to define a multivariate Gaussian distribution?	 Mean vector (μ) and Covariance matrix (Σ)	
+ What is the formula for the pdf of a d-dimensional multivariate Gaussian distribution?	 f(y | μ, Σ) = |Σ| ^(-1/2) * (2π)^(-d/2) * exp(-(1/2) * (y - μ)ᵀΣ⁻¹(y - μ))	
+ In a bivariate Gaussian (d=2), what does σ²ᵢ represent?	 The variance of Yi	
+ In a bivariate Gaussian, what does ρᵢⱼσᵢσⱼ represent?	 The covariance between Yi and Yj	
+ In a bivariate Gaussian, what does ρ₁₂ represent when i≠j?	 Correlation between Y1 and Y2	
+ What is a stochastic process?	 A collection of random variables indexed by some variable x ∈ X.	
+ If y = {y(x)  x ∈ X}, where do the y(x) usually belong to?	 R.	
+ If y = {y(x)  x ∈ X}, where does X usually belong to?	 Rⁿ	
+ How can we think of y(x)?	 A function of x.	
+ If |X|=∞, what is y?	 An infinite-dimensional process.	
+ What are FDDs?	 Finite-Dimensional Distributions	
+ What type of FDDs does a Gaussian process have?	 Gaussian	
+ What notation is used to denote the finite dimensional distribution in a Gaussian process?	 (y(x₁),..., y(xn)) ~ Nn(μ, Σ)	
+ How do we denote that the function y is a GP?	 y(·) ~ GP	
+ In a Gaussian process what does k(x,x) represent?	 The variance of f(x)	
+ What does the Matérn covariance function look like in its most general form?	 k(x, x') = s(2^(1-v)/Γ(v)) * (√2v(x - x')/l)^v * Kv(√2v(x - x')/l)	
+ What is one of the uses of a Matérn covariance function?	 Modeling rough functions.	
+ What is the modified Bessel function of the second kind?	 Kv(·)	
+ List 2 methods that can used to build new kernels.	 Kernel addition or kernel multiplication.	
+ Can one compute the gradients for tuning the parameters in a GP?	 Yes	
+ What is one limitation for GPs in practice?	 We don't usually know the true covariance function.	
+ What are 3 common steps in selecting a covariance function for GPs?	 Pick a covariance function from a small set, try a few, use empirical evaluation.	
+ What do covariance functions often contain?	 Hyper-parameters	
+ What are three ways to tune hyper parameters?	 Maximum likelihood, cross-validation, Bayes, expert judgement.	
+ What is a popular method to estimate the hyperparameters of a covariance function?	 Maximizing the log marginal likelihood.	
+ What parameters do we need to compute log p(y|x)?	 Kernel hyperparameters and the parameter σ (noise).	
+ What is the computational complexity of standard GP training?	 O(n³) (and O(n²) memory)	
+ What are 3 methods to scale GPs?	 Inducing inputs, efficient matrix-vector multiplications, random features.	
+ What is one key property of Gaussian distributions that makes GPs useful?	 Sums of Gaussians are Gaussian, and marginal distributions of multivariate Gaussians are still Gaussian.	
+ Are conditional distributions of multivariate Gaussians still Gaussian?	 Yes	
+ If we condition on the FDDs of a GP, is the resulting distribution also Gaussian?	 Yes.	
+ Given the covariance of a set of points, how can we predict a new point?	 As a Gaussian distribution.	
+ What is the most common kernel for a GP?	 RBF/Squared-exponential/exponentiated quadratic	
+ What are the two parameters of the RBF kernel and what do they mean?	 sf (variance parameter) and l (length-scale parameter).	
+ If sf=1 and l=1 for an RBF kernel what is k(x,x')?	 exp(-1/2 * (x-x')²)	
+ How do we obtain the mean vector when sampling from a GP?	 From the mean function.	
+ How do we obtain the covariance matrix when sampling from a GP?	 From the covariance function.	
+ To fully specify a Gaussian distribution what do we need?	 Mean and variance	
+ To fully specify a Gaussian process, what do we need?	 Mean and covariance functions	
+ What are the two common components of a Gaussian Process Notation like this  y(·) ~ GP(m(·),k(·,·))?	 Mean function m(·) and Covariance function k(·,·)	
+ What is the equation for the mean function, m(x)?	 E[y(x)] = m(x)	
+ What is the equation for the covariance function, k(x, x')?	 Cov(y(x), y(x')) = k(x, x')	
+ Give three examples of common mean functions.	 m(x) = 0, m(x) = const, m(x) = βTx	
+ What is another popular choice for a mean function?	 A neural network.	
+ What constraint is placed on k(x,x') (covariance function)?	 It must be a positive semi-definite function.	
+ What is a Gram matrix K?	 A matrix with Kij = k(xi, xj)	
+ What does it mean for a matrix to be positive semi-definite?	 For any vector u, uᵀKu ≥ 0.	
+ What are stationary processes?	 When covariance functions depend only on distance between locations i.e. k(x,x') = k(x - x')	
+ What are isotropic covariance functions?	 When Cov(y(x), y(x’)) = k(||x - x’||)	
+ What does the covariance function determine?	 The nature of the GP	
+ What does k determine about the functions?	 The hypothesis space/space of functions	

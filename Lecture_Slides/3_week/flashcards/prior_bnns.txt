@@ -1,0 +1,22 @@
+Front: What is a good review on priors for BNNs?
+Back: "Priors in Bayesian Deep Learning: A Review" by Vincent Fortuin et al
+Front: What are the usual choices for priors of weights/biases?
+Back: Gaussian distribution (can be a diagonal matrix to allow independent weights, and the mean usually set at 0)
+Front: What does nin refer to regarding weight initialization?
+Back: Fan-in, number of nodes in previous layer
+Front: What does nout refer to regarding weight initialization?
+Back: Fan-out, number of nodes in current layer
+Front: What does parameter vector 𝜃 represent in BNNs?
+Back: It contains entries of all the matrices and bias vectors (i.e., weights) and variance parameters.
+Front: What are the Gaussian prior parameters called?
+Back: Hyperparameters.
+Front: What is an alternative prior in BNNs other than Gaussian?
+Back: Sparsity-promoting prior
+Front: What is a simplification in defining priors in BNNs?
+Back: Covariance matrix is diagonal or a multiple of the identity
+Front: What is learned in "empirical Bayes"?
+Back: Hyperparameters are optimized by maximizing the marginal likelihood.
+Front: What is a potential downside of cross-validation?
+Back: It can be computationally expensive since it scales exponentially with the number of hyperparameters.
+Front: What kind of prior is involved in neural architecture search?
+Back: Architectural priors or structural prior

@@ -1,0 +1,22 @@
+Front: What is a random variable?
+Back: A function that assigns a number to each outcome in the sample space.
+Front: What is a discrete random variable?
+Back: A random variable whose range is countable.
+Front: What is the "state space" of a random variable?
+Back: The range of the random variable, i.e. the set of all possible values it can take.
+Front: What is a probability mass function (pmf)?
+Back: A function that gives the probability of each discrete value of a random variable.
+Front: How do you represent a pmf?
+Back: As a histogram or a parametric function.
+Front: What is a continuous random variable?
+Back: A random variable that can take any value within a given range, i.e. non-countable.
+Front: What is the Lebesgue measure?
+Back: A way to measure the length of intervals on the real line, and to quantify the "size" of sets, that is a generalization of the notion of length, area, and volume.
+Front: What is the Radon-Nikodym derivative?
+Back: If probability P is absolutely continuous with respect to the Lebesgue measure (l), then the Radon-Nikodym derivative dP/dl exists, which is called the probability density function (pdf).
+Front: What is a probability density function (pdf)?
+Back: A function, for a continuous random variable, whose integral over an interval is the probability of the variable falling in that interval.
+Front: What is a cumulative distribution function (cdf)?
+Back: A function that gives the probability that a random variable is less than or equal to a given value.
+Front: How is the cdf defined for a continuous random variable?
+Back: F(x) = P(X ≤ x) = ∫₋∞ˣ p(x')dx'

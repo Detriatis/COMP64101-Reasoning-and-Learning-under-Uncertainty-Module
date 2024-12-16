@@ -1,0 +1,43 @@
+ What are undirected graphical models also known as?	 Markov random fields or Markov networks.	 PGMs, Undirected
+ What is a key difference between directed and undirected graphical models?	 Undirected models don't require specifying edge orientations.	 PGMs, Undirected
+ What is the underlying structure in undirected graphical models?	 An undirected graph.	 PGMs, Undirected
+ In an undirected graph, what do you associate to each maximal clique?	 A potential function.	 PGMs, Undirected, Joint Distribution
+ What is a clique in an undirected graph?	 A set of nodes that are all neighbors of each other.	 PGMs, Undirected, Joint Distribution
+ What is a maximal clique in an undirected graph?	 A clique that cannot be made larger without losing the clique property.	 PGMs, Undirected, Joint Distribution
+ What do maximal cliques help define in an undirected graph?	 A potential function is associated with each maximal clique.	 PGMs, Undirected, Joint Distribution
+ What is a potential function?	 Any non-negative function that relates the variables in the clique.	 PGMs, Undirected, Joint Distribution
+ What is the Hammersley-Clifford theorem about?	 A theorem describing the structure of a distribution of a UPGM, by relating its joint distribution to the potential functions.	 PGMs, Undirected, Joint Distribution
+ According to the Hammersley-Clifford Theorem, how is the joint distribution structured in an UPGM?	 It is proportional to the product of potential functions over maximal cliques.	 PGMs, Undirected, Joint Distribution
+ What is a partition function?	 A normalization factor that makes the joint distribution sum to one	 PGMs, Undirected, Joint Distribution
+ What is a Gibbs distribution?	 An alternative way to represent a joint distribution based on the energy of the model.	 PGMs, Undirected, Gibbs
+ How is an energy based model defined in terms of the energy?	 The probability is related to the exponential of the negative energy	 PGMs, Undirected, Gibbs
+ What is a Fully Visible Markov Random Field?	 A Markov Random field where there are no latent variables.	 PGMs, Undirected, MRF
+ What is a MRF with latent variables?	 A Markov Random Field that has latent variables	 PGMs, Undirected, MRF
+ What is a Maximum Entropy Model?	 Models that are based on the principle of maximizing entropy while satisfying constraints.	 PGMs, Undirected, Maximum Entropy
+ What is a Gaussian MRF?	 A Markov Random Field that has a joint Gaussian distribution.	 PGMs, Undirected, Gaussian
+ How is conditional independence defined in undirected graphs?	 Simple graph separation.	 PGMs, Undirected, CI
+ What is the undirected global Markov property?	 A | B | C if and only if C separates A from B in the graph.	 PGMs, Undirected, CI
+ What does a node being separated by C from other nodes mean in UPGMs?	 If you remove C from the graph, there is no path connecting A to B.	 PGMs, Undirected, CI
+ What is a local Markov property in an UPGM?	 A node is conditionally independent of all other nodes except its Markov Blanket	 PGMs, Undirected, Markov Properties
+ What is the closure of a node?	 The Markov blanket of a node and the node itself.	 PGMs, Undirected, Markov Properties
+ What is a node's Markov blanket?	 The set of immediate neighbors of a node in an undirected graph.	 PGMs, Undirected, Markov Properties
+ What is the pairwise Markov property for UPGMs?	 Two nodes are conditionally independent given the rest if there's no edge between them.	 PGMs, Undirected, Markov Properties
+ Why is it useful to convert a DPGM to an UPGM?	 Because determining conditional independence relationships is easier by using simple graph separation.	 PGMs, Conversion
+ What do you need to do when converting chain or tent structures from a DPGM to a UPGM?	 Drop the orientation of the edges	 PGMs, Conversion
+ What do you need to do when converting collider structures from a DPGM to a UPGM?	 Add an edge between the co-parents and drop the orientation	 PGMs, Conversion
+ What is moralization in the context of PGMs?	 Converting a DPGM into an UPGM using the previous rules.	 PGMs, Conversion, Moralization
+ What is an ancestral graph?	 A graph that takes into consideration only a specific set of variables.	 PGMs, Conversion, Moralization
+ Why do you use MCMC for sampling from UPGMs?	 Because it can be quite slow to do otherwise.	 PGMs, Undirected, Generation
+" What is ""inference"" about in UPGMs?"	 About computing the posterior distribution over nodes.	 PGMs, Undirected, Inference
+ Why is the learning process computationally expensive in UPGMs?	 Because the partition function is doubly intractable	 PGMs, Undirected, Learning
+ What are CRF?	 Conditional Random Fields.	 PGMs, CRFs
+ What is the core difference between Directed PGMs and Undirected PGMs?	 The use and absence of edge directions.	 PGMs, Comparison
+ What are Factor Graphs?	 Graphical models that explicitly represent factors in a factorization.	 PGMs, Factor Graphs
+ What are Bipartite factor graphs?	 Factor graphs that have nodes separated by types.	 PGMs, Factor Graphs
+ What are Forney Factor Graphs?	 Factor graphs where the factors are represented as nodes.	 PGMs, Factor Graphs
+ What is a Structural Causal Model?	 A triple that combines exogenous, endogenous variables and functions.	 PGMs, Structural Causal Models
+ What does the causal Markov assumption states?	 That all of the causal relevant factors are included in the model.	 PGMs, Structural Causal Models
+ What is a structural equation model?	 A structural causal model with linear functional relationships and Gaussian exogenous variables.	 PGMs, Structural Equation Models
+" What is ""do operator"" in Structural Causal Models?"	 An action that sets a variable to a given value, which makes the graph causal.	 PGMs, Interventions
+ What are counterfactuals?	 Reasoning about what would have happened if things had been different.	 PGMs, Counterfactuals
+ How are observational and interventional studies defined in regards to counterfactuals?	 observational studies predict effects of causes, interventional studies predict causes of effects.	 PGMs, Counterfactuals

@@ -1,0 +1,129 @@
+39. Front: What are undirected graphical models also known as?
+Back: Markov random fields or Markov networks.
+Tags: PGMs, Undirected
+40. Front: What is a key difference between directed and undirected graphical models?
+Back: Undirected models don't require specifying edge orientations.
+Tags: PGMs, Undirected
+41. Front: What is the underlying structure in undirected graphical models?
+Back: An undirected graph.
+Tags: PGMs, Undirected
+42. Front: In an undirected graph, what do you associate to each maximal clique?
+Back: A potential function.
+Tags: PGMs, Undirected, Joint Distribution
+43. Front: What is a clique in an undirected graph?
+Back: A set of nodes that are all neighbors of each other.
+Tags: PGMs, Undirected, Joint Distribution
+Front: What is a maximal clique in an undirected graph?
+Back: A clique that cannot be made larger without losing the clique property.
+Tags: PGMs, Undirected, Joint Distribution
+Front: What do maximal cliques help define in an undirected graph?
+Back: A potential function is associated with each maximal clique.
+Tags: PGMs, Undirected, Joint Distribution
+Front: What is a potential function?
+Back: Any non-negative function that relates the variables in the clique.
+Tags: PGMs, Undirected, Joint Distribution
+Front: What is the Hammersley-Clifford theorem about?
+Back: A theorem describing the structure of a distribution of a UPGM, by relating its joint distribution to the potential functions.
+Tags: PGMs, Undirected, Joint Distribution
+Front: According to the Hammersley-Clifford Theorem, how is the joint distribution structured in an UPGM?
+Back: It is proportional to the product of potential functions over maximal cliques.
+Tags: PGMs, Undirected, Joint Distribution
+Front: What is a partition function?
+Back: A normalization factor that makes the joint distribution sum to one
+Tags: PGMs, Undirected, Joint Distribution
+Front: What is a Gibbs distribution?
+Back: An alternative way to represent a joint distribution based on the energy of the model.
+Tags: PGMs, Undirected, Gibbs
+Front: How is an energy based model defined in terms of the energy?
+Back: The probability is related to the exponential of the negative energy
+Tags: PGMs, Undirected, Gibbs
+Front: What is a Fully Visible Markov Random Field?
+Back: A Markov Random field where there are no latent variables.
+Tags: PGMs, Undirected, MRF
+Front: What is a MRF with latent variables?
+Back: A Markov Random Field that has latent variables
+Tags: PGMs, Undirected, MRF
+Front: What is a Maximum Entropy Model?
+Back: Models that are based on the principle of maximizing entropy while satisfying constraints.
+Tags: PGMs, Undirected, Maximum Entropy
+Front: What is a Gaussian MRF?
+Back: A Markov Random Field that has a joint Gaussian distribution.
+Tags: PGMs, Undirected, Gaussian
+Front: How is conditional independence defined in undirected graphs?
+Back: Simple graph separation.
+Tags: PGMs, Undirected, CI
+Front: What is the undirected global Markov property?
+Back: A | B | C if and only if C separates A from B in the graph.
+Tags: PGMs, Undirected, CI
+Front: What does a node being separated by C from other nodes mean in UPGMs?
+Back: If you remove C from the graph, there is no path connecting A to B.
+Tags: PGMs, Undirected, CI
+Front: What is a local Markov property in an UPGM?
+Back: A node is conditionally independent of all other nodes except its Markov Blanket
+Tags: PGMs, Undirected, Markov Properties
+Front: What is the closure of a node?
+Back: The Markov blanket of a node and the node itself.
+Tags: PGMs, Undirected, Markov Properties
+Front: What is a node's Markov blanket?
+Back: The set of immediate neighbors of a node in an undirected graph.
+Tags: PGMs, Undirected, Markov Properties
+Front: What is the pairwise Markov property for UPGMs?
+Back: Two nodes are conditionally independent given the rest if there's no edge between them.
+Tags: PGMs, Undirected, Markov Properties
+Front: Why is it useful to convert a DPGM to an UPGM?
+Back: Because determining conditional independence relationships is easier by using simple graph separation.
+Tags: PGMs, Conversion
+Front: What do you need to do when converting chain or tent structures from a DPGM to a UPGM?
+Back: Drop the orientation of the edges
+Tags: PGMs, Conversion
+Front: What do you need to do when converting collider structures from a DPGM to a UPGM?
+Back: Add an edge between the co-parents and drop the orientation
+Tags: PGMs, Conversion
+Front: What is moralization in the context of PGMs?
+Back: Converting a DPGM into an UPGM using the previous rules.
+Tags: PGMs, Conversion, Moralization
+Front: What is an ancestral graph?
+Back: A graph that takes into consideration only a specific set of variables.
+Tags: PGMs, Conversion, Moralization
+Front: Why do you use MCMC for sampling from UPGMs?
+Back: Because it can be quite slow to do otherwise.
+Tags: PGMs, Undirected, Generation
+Front: What is "inference" about in UPGMs?
+Back: About computing the posterior distribution over nodes.
+Tags: PGMs, Undirected, Inference
+Front: Why is the learning process computationally expensive in UPGMs?
+Back: Because the partition function is doubly intractable
+Tags: PGMs, Undirected, Learning
+Front: What are CRF?
+Back: Conditional Random Fields.
+Tags: PGMs, CRFs
+Front: What is the core difference between Directed PGMs and Undirected PGMs?
+Back: The use and absence of edge directions.
+Tags: PGMs, Comparison
+Front: What are Factor Graphs?
+Back: Graphical models that explicitly represent factors in a factorization.
+Tags: PGMs, Factor Graphs
+Front: What are Bipartite factor graphs?
+Back: Factor graphs that have nodes separated by types.
+Tags: PGMs, Factor Graphs
+Front: What are Forney Factor Graphs?
+Back: Factor graphs where the factors are represented as nodes.
+Tags: PGMs, Factor Graphs
+Front: What is a Structural Causal Model?
+Back: A triple that combines exogenous, endogenous variables and functions.
+Tags: PGMs, Structural Causal Models
+Front: What does the causal Markov assumption states?
+Back: That all of the causal relevant factors are included in the model.
+Tags: PGMs, Structural Causal Models
+Front: What is a structural equation model?
+Back: A structural causal model with linear functional relationships and Gaussian exogenous variables.
+Tags: PGMs, Structural Equation Models
+Front: What is "do operator" in Structural Causal Models?
+Back: An action that sets a variable to a given value, which makes the graph causal.
+Tags: PGMs, Interventions
+Front: What are counterfactuals?
+Back: Reasoning about what would have happened if things had been different.
+Tags: PGMs, Counterfactuals
+Front: How are observational and interventional studies defined in regards to counterfactuals?
+Back: observational studies predict effects of causes, interventional studies predict causes of effects.
+Tags: PGMs, Counterfactuals

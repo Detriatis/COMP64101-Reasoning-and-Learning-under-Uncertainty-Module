@@ -1,0 +1,30 @@
+Front: What is the simplest graph for message passing?
+Back: A 1D chain.
+Tags: Message Passing, Chains
+Front: What does an HMM model?
+Back: Latent variable sequences
+Tags: Message Passing, HMMs
+Front: What are the two main types of variables in an HMM?
+Back: Hidden (latent) and observations.
+Tags: Message Passing, HMMs
+Front: What do you compute in the posterior inference of the HMMs?
+Back: The probability distribution of the hidden variables given all of the data.
+Tags: Message Passing, HMMs, Inference
+Front: What is an instance of smoothing in terms of HMMs?
+Back: Posterior inference on hidden states.
+Tags: Message Passing, HMMs, Smoothing
+Front: What is Forward Filtering Backward Smoothing?
+Back: A method that combines a forward and backward pass in order to obtain smoother results
+Tags: Message Passing, HMMs, Smoothing, FFBS
+Front: What needs to be computed to apply the FFBS algorithm?
+Back: The factors of the posterior independently.
+Tags: Message Passing, HMMs, Inference
+Front: What are the key steps in the forwards algorithm?
+Back: The factors of the posterior.
+Tags: Message Passing, Chains
+Front: What is computed in the backwards pass in forward-backward algorithm?
+Back: The backwards recursions.
+Tags: Message Passing, Chains
+Front: What is Viterbi algorithm?
+Back: An algorithm that finds the most likely sequence of latent states given the observations.
+Tags: Message Passing, Chains, Viterbi

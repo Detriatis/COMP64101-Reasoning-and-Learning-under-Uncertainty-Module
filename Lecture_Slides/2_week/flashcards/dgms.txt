@@ -1,0 +1,99 @@
+Front: What is another name for directed graphical models?
+Back: Belief networks or Bayesian networks (though they are not necessarily Bayesian).
+Tags: PGMs, Directed
+Front: What is a DAG?
+Back: Directed Acyclic Graph
+Tags: PGMs, Directed
+Front: What is the key characteristic of a directed graphical model?
+Back: It's based on a DAG, in which the edges have direction.
+Tags: PGMs, Directed
+Front: What is meant by topological ordering in a DAG?
+Back: Parents come before children.
+Tags: PGMs, Directed, Ordering
+Front: What is the ordered Markov property in a DAG?
+Back: Each node is conditionally independent of its predecessors (except its parents) given its parents.
+Tags: PGMs, Directed, Ordering
+Front: How is the joint distribution factored in a DAG according to the ordered Markov property?
+Back: p(x1:N) = product from i=1 to N of p(xi|x_pa(i)) where x_pa(i) represents the parents of i
+Tags: PGMs, Directed, Joint Distribution
+Front: What is a Conditional Probability Table (CPT) ?
+Back: A table that defines a distribution over a variable given other variables. Commonly used in discrete random variables.
+Tags: PGMs, Directed, CPT
+Front: What is a first order Markov chain?
+Back: Each state is only dependent on the previous state.
+Tags: PGMs, Markov Chain
+Front: What is a second order Markov chain?
+Back: Each state is dependent on two previous states.
+Tags: PGMs, Markov Chain
+Front: What is the "explaining away" effect?
+Back: When observing a common child makes two parent nodes conditionally dependent, which were independent a priori
+Tags: PGMs, Directed, Explaining Away
+Front: What is another name for the explaining away effect?
+Back: Berkson's paradox or inter-causal reasoning
+Tags: PGMs, Directed, Explaining Away
+Front: What are Sigmoid Belief Nets?
+Back: Hierarchical latent variable models with binary latent variables and logistic regression latent CPDs
+Tags: PGMs, Directed, Sigmoid
+Front: In terms of probability models, when do you have a sigmoid belief net?
+Back: When you have binary latent variables and the latent CPDs are logistic regression models.
+Tags: PGMs, Directed, Sigmoid
+Front: What are the key elements when describing Conditional Independece in PGMs?
+Back: X_A || X_B | X_C
+Tags: PGMs, Directed, Conditional Independence
+Front: What does it mean when we say that variables X_A and X_B are conditionally independent given X_C?
+Back: Knowing X_C renders X_A and X_B unrelated.
+Tags: PGMs, Directed, Conditional Independence
+Front: What does an I-map represent?
+Back: A graph encoding the conditional independence statements in a distribution.
+Tags: PGMs, Directed, Conditional Independence
+Front: What does it mean if a graph G is an I-map of a distribution p?
+Back: I(G) ⊆ I(p), that is, all the CI statements encoded by the graph G are also true in p.
+Tags: PGMs, Directed, Conditional Independence
+Front: What is meant by a "minimal" I-map?
+Back: A graph where there is no sub-graph that is still an I-map of the given distribution.
+Tags: PGMs, Directed, Conditional Independence
+Front: What does it mean for path P to be d-separated by C?
+Back: Either: P contains chain with node in C. P contains a tent with node in C or P contains collider with node not in C nor its descendant.
+Tags: PGMs, Directed, Global Markov
+Front: What are the three types of structures when considering d-separation
+Back: Chain, Tent and Collider.
+Tags: PGMs, Directed, d-separation
+Front: How is a chain structure defined in a DAG with regards to CI?
+Back: Observing a node separates its predecessor and successor.
+Tags: PGMs, Directed, d-separation
+Front: How is a tent (fork) structure defined in a DAG with regards to CI?
+Back: Observing a root node separates its children nodes.
+Tags: PGMs, Directed, d-separation
+Front: How is a collider structure defined in a DAG with regards to CI?
+Back: Observing a common child node makes its parent nodes dependent.
+Tags: PGMs, Directed, d-separation
+Front: How are conditional independencies related to d-separation in a DAG?
+Back: X_A || X_B | X_C <=> A is d-separated from B given C.
+Tags: PGMs, Directed, d-separation
+Front: What does a "Markov Blanket" of node i mean?
+Back: It is the smallest set of nodes that render node i independent of the rest of the graph.
+Tags: PGMs, Directed, Markov Blanket
+Front: What is the Markov Blanket of a node i?
+Back: mb(i) = ch(i) U pa(i) U copa(i) (children, parents and co-parents of the node).
+Tags: PGMs, Directed, Markov Blanket
+Front: What does local Markov property for DAGs mean?
+Back: A node is conditionally independent of non-descendants given its parents.
+Tags: PGMs, Directed, Markov Properties
+Front: What does the "ordered Markov property" mean for a DAG?
+Back: Each node is conditionally independent of its predecessors (except parents) given its parents.
+Tags: PGMs, Directed, Markov Properties
+Front: What is the factorization property?
+Back: Any distribution that is Markov to a graph, can be factored in terms of the Conditional Probability Distributions for every node.
+Tags: PGMs, Directed, Markov Properties
+Front: What is ancestral sampling?
+Back: A sampling method where you sample parents before children using the topological ordering in a DAG.
+Tags: PGMs, Directed, Sampling
+Front: What does "inference" refer to in the context of PGMs?
+Back: Computing a posterior distribution over query nodes given observed values and marginalized over nuisance variables.
+Tags: PGMs, Directed, Inference
+Front: What is a "posterior marginal" of node i?
+Back: Posterior distribution of node i given observed evidence.
+Tags: PGMs, Directed, Inference
+Front: What is parameter learning in PGMs?
+Back: estimating the parameters of a model given the data and its distribution
+Tags: PGMs, Directed, Learning

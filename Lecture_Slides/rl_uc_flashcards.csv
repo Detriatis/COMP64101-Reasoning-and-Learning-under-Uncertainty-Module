@@ -1,0 +1,471 @@
+ Besides the function-space view, what is another way to introduce GPs?	 Through Bayesian linear regression (weight-space view).	
+ What does Bayesian linear regression specify as a prior distribution?	 Over the weights, w	
+ Given data X, y and weights w what is the likelihood?	 N(y|Xw,σ²I)	
+ What does a Bayesian approach do to the parameters?	 Specifies a prior distribution	
+ How can the model be made nonlinear with Bayesian linear regression?	 Using basis functions.	
+" What is the ""kernel trick"" in relation to linear regression?"	 Replacing inner products between vectors with k(x, x').	
+" What is the basis function mapping to in the ""kernel trick"" context?"	 The infinite dimensional feature space.	
+ When does the weight space view of a Gaussian process equivalent to the function space view?	 When using a zero-mean Gaussian prior.	
+ What is the connection between a GP and a linear model with basis functions?	 It's equivalent as long as the GP has mean zero and covariance k(x, x') = φ(x)Σρφ(x')	
+" What does ""GP"" stand for?"	 Gaussian Process	
+ What are Gaussian processes also known as?	 Gaussian random fields	
+" Who introduced GPs under the name ""kriging""?"	 George Matheron	
+ What year were GPs first introduced?	 1960	
+" What field is ""kriging"" associated with?"	 Geostatistics	
+ What type of regression is a common application of GPs?	 Non-linear regression	
+ Besides regression, what other areas have GPs been applied to? (Multiple answers)	 Pattern classification, dimensionality reduction, multi-task learning, Bayesian optimization	
+ How do Gaussian processes generalize the multivariate Gaussian distribution?	 To the infinite-dimensional setting.	
+ What are two main properties of the univariate Gaussian distribution (Normal distribution) that make it convenient mathematically?	 Central limit theorem, family is closed under linear operations, uncorrelated implies independent.	
+ What are the two parameters needed to define a univariate Gaussian distribution?	 Mean (μ) and Variance (σ²)	
+ Write down the PDF for a univariate Gaussian distribution.	 fy(y) = (1 / √2πσ²) * exp(-(y - μ)² / 2σ²)	
+ Is the CDF of a univariate Gaussian distribution known in closed form?	 No	
+ What are two parameters needed to define a multivariate Gaussian distribution?	 Mean vector (μ) and Covariance matrix (Σ)	
+ What is the formula for the pdf of a d-dimensional multivariate Gaussian distribution?	 f(y | μ, Σ) = |Σ| ^(-1/2) * (2π)^(-d/2) * exp(-(1/2) * (y - μ)ᵀΣ⁻¹(y - μ))	
+ In a bivariate Gaussian (d=2), what does σ²ᵢ represent?	 The variance of Yi	
+ In a bivariate Gaussian, what does ρᵢⱼσᵢσⱼ represent?	 The covariance between Yi and Yj	
+ In a bivariate Gaussian, what does ρ₁₂ represent when i≠j?	 Correlation between Y1 and Y2	
+ What is a stochastic process?	 A collection of random variables indexed by some variable x ∈ X.	
+ If y = {y(x)  x ∈ X}, where do the y(x) usually belong to?	 R.	
+ If y = {y(x)  x ∈ X}, where does X usually belong to?	 Rⁿ	
+ How can we think of y(x)?	 A function of x.	
+ If |X|=∞, what is y?	 An infinite-dimensional process.	
+ What are FDDs?	 Finite-Dimensional Distributions	
+ What type of FDDs does a Gaussian process have?	 Gaussian	
+ What notation is used to denote the finite dimensional distribution in a Gaussian process?	 (y(x₁),..., y(xn)) ~ Nn(μ, Σ)	
+ How do we denote that the function y is a GP?	 y(·) ~ GP	
+ In a Gaussian process what does k(x,x) represent?	 The variance of f(x)	
+ What does the Matérn covariance function look like in its most general form?	 k(x, x') = s(2^(1-v)/Γ(v)) * (√2v(x - x')/l)^v * Kv(√2v(x - x')/l)	
+ What is one of the uses of a Matérn covariance function?	 Modeling rough functions.	
+ What is the modified Bessel function of the second kind?	 Kv(·)	
+ List 2 methods that can used to build new kernels.	 Kernel addition or kernel multiplication.	
+ Can one compute the gradients for tuning the parameters in a GP?	 Yes	
+ What is one limitation for GPs in practice?	 We don't usually know the true covariance function.	
+ What are 3 common steps in selecting a covariance function for GPs?	 Pick a covariance function from a small set, try a few, use empirical evaluation.	
+ What do covariance functions often contain?	 Hyper-parameters	
+ What are three ways to tune hyper parameters?	 Maximum likelihood, cross-validation, Bayes, expert judgement.	
+ What is a popular method to estimate the hyperparameters of a covariance function?	 Maximizing the log marginal likelihood.	
+ What parameters do we need to compute log p(y|x)?	 Kernel hyperparameters and the parameter σ (noise).	
+ What is the computational complexity of standard GP training?	 O(n³) (and O(n²) memory)	
+ What are 3 methods to scale GPs?	 Inducing inputs, efficient matrix-vector multiplications, random features.	
+ What is one key property of Gaussian distributions that makes GPs useful?	 Sums of Gaussians are Gaussian, and marginal distributions of multivariate Gaussians are still Gaussian.	
+ Are conditional distributions of multivariate Gaussians still Gaussian?	 Yes	
+ If we condition on the FDDs of a GP, is the resulting distribution also Gaussian?	 Yes.	
+ Given the covariance of a set of points, how can we predict a new point?	 As a Gaussian distribution.	
+ What is the most common kernel for a GP?	 RBF/Squared-exponential/exponentiated quadratic	
+ What are the two parameters of the RBF kernel and what do they mean?	 sf (variance parameter) and l (length-scale parameter).	
+ If sf=1 and l=1 for an RBF kernel what is k(x,x')?	 exp(-1/2 * (x-x')²)	
+ How do we obtain the mean vector when sampling from a GP?	 From the mean function.	
+ How do we obtain the covariance matrix when sampling from a GP?	 From the covariance function.	
+ To fully specify a Gaussian distribution what do we need?	 Mean and variance	
+ To fully specify a Gaussian process, what do we need?	 Mean and covariance functions	
+ What are the two common components of a Gaussian Process Notation like this  y(·) ~ GP(m(·),k(·,·))?	 Mean function m(·) and Covariance function k(·,·)	
+ What is the equation for the mean function, m(x)?	 E[y(x)] = m(x)	
+ What is the equation for the covariance function, k(x, x')?	 Cov(y(x), y(x')) = k(x, x')	
+ Give three examples of common mean functions.	 m(x) = 0, m(x) = const, m(x) = βTx	
+ What is another popular choice for a mean function?	 A neural network.	
+ What constraint is placed on k(x,x') (covariance function)?	 It must be a positive semi-definite function.	
+ What is a Gram matrix K?	 A matrix with Kij = k(xi, xj)	
+ What does it mean for a matrix to be positive semi-definite?	 For any vector u, uᵀKu ≥ 0.	
+ What are stationary processes?	 When covariance functions depend only on distance between locations i.e. k(x,x') = k(x - x')	
+ What are isotropic covariance functions?	 When Cov(y(x), y(x’)) = k(||x - x’||)	
+ What does the covariance function determine?	 The nature of the GP	
+ What does k determine about the functions?	 The hypothesis space/space of functions	
+" What is ""Monte Carlo Dropout""?"	 Randomly sampling after training by dropping out units according to a Bernoulli distribution.	
+ What is SWA?	 Stochastic Weight Averaging	
+ What are mixtures in deep ensembles?	 Coefficients are non-negative and add up to 1.	
+ What are stacking in deep ensembles?	 Coefficients are non-negative but do not need to add up to 1.	
+ Where can you find the material for Hierarchical Bayesian neural networks?	 Murphy (2023), pp. 675 - 678	
+ Give three examples of techniques mentioned for Online inference	 Sequential Laplace, extended Kalman filtering, assumed density filtering, online variational inference	
+" What is ""Monte Carlo Dropout""?"	 Randomly sampling after training by dropping out units according to a Bernoulli distribution.	
+ What is SWA?	 Stochastic Weight Averaging	
+ What are mixtures in deep ensembles?	 Coefficients are non-negative and add up to 1.	
+ What are stacking in deep ensembles?	 Coefficients are non-negative but do not need to add up to 1.	
+ Where can you find the material for Hierarchical Bayesian neural networks?	 Murphy (2023), pp. 675 - 678	
+ Give three examples of techniques mentioned for Online inference	 Sequential Laplace, extended Kalman filtering, assumed density filtering, online variational inference	
+ Why consider many possible parameter settings in BNNs, as opposed to only one, like in classical NNs?	 To improve accuracy and uncertainty representation, as many different settings can fit the data well but behave differently out-of-sample.	
+ What are two key choices to consider when building a Bayesian neural network?	 Prior distribution and likelihood.	
+ What is defined by choices of prior distribution and likelihood?	 The posterior distribution.	
+" What does ""BNN"" stand for?"	 Bayesian Neural Network	
+ What is a core principle of BNNs?	 To represent a distribution over functions instead of a single function.	
+ Why are Bayesian methods sometimes preferred in deep learning?	 They are principled, generally interpretable, and may improve generalization.	
+ Why can Bayesian methods be less used sometimes?	 Computational expense	
+ What are the two main kinds of generalisation for BNNs?	 In-distribution and out-of-distribution generalisation	
+ What is the main difference between in- and out-of-distribution generalisation?	 The future data is drawn from the training/testing distribution (in) or from another (out)	
+" What does ""BNN"" stand for?"	 Bayesian Neural Network	
+ What is a core principle of BNNs?	 To represent a distribution over functions instead of a single function.	
+ Why are Bayesian methods sometimes preferred in deep learning?	 They are principled, generally interpretable, and may improve generalization.	
+ Why can Bayesian methods be less used sometimes?	 Computational expense	
+ What are the two main kinds of generalisation for BNNs?	 In-distribution and out-of-distribution generalisation	
+ What is the main difference between in- and out-of-distribution generalisation?	 The future data is drawn from the training/testing distribution (in) or from another (out)	
+" What is ""generalisation"" in deep learning?"	 Performance on out-of-sample data (training or testing data).	
+ What should ideally hold for generalisation?	 Guarantees of predictive performance that hold at the distribution level.	
+ What are two key settings in generalisation?	 In-distribution and out-of-distribution	
+ What setting of generalisation has the same distribution for training, test, and future data?	 In-distribution generalisation	
+ What setting of generalisation has a different distribution for future data than for training/testing data?	 Out-of-distribution generalisation	
+" What is ""mode connectivity""?"	 The observation that independently trained SGD solutions can be connected by a curve of near-zero loss	
+ What does N_eff represent?	 Effective dimensionality of a model.	
+ What does λi represent in the equation for N_eff?	 Eigenvalues of the Hessian matrix.	
+ What did Zhang et al. (2017) find out about CNNs?	 They can fit CIFAR-10 with random labels but still generalize well on the clean test set.	
+ What kind of bounds are PAC-Bayes bounds?	 A kind of statistical learning bounds (a.k.a., generalization bounds, risk bounds).	
+" What does ""certification"" refer to in PAC-Bayes framework?"	 Evaluating a bound value for a randomized classifier.	
+" What does ""optimisation"" refer to in PAC-Bayes framework?"	 Using the bounds as a learning objective	
+" What is ""generalisation"" in deep learning?"	 Performance on out-of-sample data (training or testing data).	
+ What should ideally hold for generalisation?	 Guarantees of predictive performance that hold at the distribution level.	
+ What are two key settings in generalisation?	 In-distribution and out-of-distribution	
+ What setting of generalisation has the same distribution for training, test, and future data?	 In-distribution generalisation	
+ What setting of generalisation has a different distribution for future data than for training/testing data?	 Out-of-distribution generalisation	
+" What is ""mode connectivity""?"	 The observation that independently trained SGD solutions can be connected by a curve of near-zero loss	
+ What does N_eff represent?	 Effective dimensionality of a model.	
+ What does λi represent in the equation for N_eff?	 Eigenvalues of the Hessian matrix.	
+ What did Zhang et al. (2017) find out about CNNs?	 They can fit CIFAR-10 with random labels but still generalize well on the clean test set.	
+ What kind of bounds are PAC-Bayes bounds?	 A kind of statistical learning bounds (a.k.a., generalization bounds, risk bounds).	
+" What does ""certification"" refer to in PAC-Bayes framework?"	 Evaluating a bound value for a randomized classifier.	
+" What does ""optimisation"" refer to in PAC-Bayes framework?"	 Using the bounds as a learning objective	
+ What is a neural network (NN)?	 A computational model defined by successive compositions of linear and non-linear functions.	
+ What does a classical NN correspond to (graphically)?	 A graph consisting of nodes and edges linking some pairs of nodes.	
+" What is a ""perceptron"" in the context of neural networks?"	 The basic building block of neural networks, performing a weighted sum with bias and applying an activation function.	
+ What is the key linear operation in a neural network layer?	 An affine linear mapping, defined by a matrix and a bias vector.	
+ What is the role of non-linear operations in neural network layers?	 They allow coordinate-wise application of a non-linear function to the output of the linear operation.	
+ What do we stack in fully connected feedforward networks?	 Layers of linear and non-linear operations.	
+" What are the ""trainable parameters"" of a neural network?"	 Entries of the matrices and bias vectors for all layers (i.e., weights).	
+ What is another name for the classical fully connected feedforward NN?	 Multilayer Perceptron (MLP)	
+ How are classical NNs trained?	 By optimizing parameters via Empirical Risk Minimization (ERM), using gradient descent on a loss function.	
+ What is a neural network (NN)?	 A computational model defined by successive compositions of linear and non-linear functions.	
+ What does a classical NN correspond to (graphically)?	 A graph consisting of nodes and edges linking some pairs of nodes.	
+" What is a ""perceptron"" in the context of neural networks?"	 The basic building block of neural networks, performing a weighted sum with bias and applying an activation function.	
+ What is the key linear operation in a neural network layer?	 An affine linear mapping, defined by a matrix and a bias vector.	
+ What is the role of non-linear operations in neural network layers?	 They allow coordinate-wise application of a non-linear function to the output of the linear operation.	
+ What do we stack in fully connected feedforward networks?	 Layers of linear and non-linear operations.	
+" What are the ""trainable parameters"" of a neural network?"	 Entries of the matrices and bias vectors for all layers (i.e., weights).	
+ What is another name for the classical fully connected feedforward NN?	 Multilayer Perceptron (MLP)	
+ How are classical NNs trained?	 By optimizing parameters via Empirical Risk Minimization (ERM), using gradient descent on a loss function.	
+ Write the formula for the posterior distribution in BNNs.	 p(w|D, θ) = p(D|w, θ)p(w|θ) / p(D|θ)	
+ What is the numerator of the posterior formula?	 Likelihood times prior.	
+ What is the denominator of the posterior formula?	 Evidence (normalization).	
+ Write the formula for 'evidence', or the normalization term.	 p(D|θ) = ∫ p(D|w, θ)p(w|θ) dw	
+ In the case of supervised learning, what do we want to compute in BNNs?	 A posterior predictive distribution  p(y|x, D, θ).	
+ Name five methods for approximating posteriors in BNNs.	 Monte Carlo dropout, Laplace approximation, variational inference, expectation propagation, last layer methods.	
+ Name five more methods for approximating posteriors in BNNs.	 SNGP, MCMC methods, SGD trajectory based methods, Deep ensembles, Approximating the posterior predictive distribution, Tempered and cold posteriors	
+ Write the formula for the posterior distribution in BNNs.	 p(w|D, θ) = p(D|w, θ)p(w|θ) / p(D|θ)	
+ What is the numerator of the posterior formula?	 Likelihood times prior.	
+ What is the denominator of the posterior formula?	 Evidence (normalization).	
+ Write the formula for 'evidence', or the normalization term.	 p(D|θ) = ∫ p(D|w, θ)p(w|θ) dw	
+ In the case of supervised learning, what do we want to compute in BNNs?	 A posterior predictive distribution  p(y|x, D, θ).	
+ Name five methods for approximating posteriors in BNNs.	 Monte Carlo dropout, Laplace approximation, variational inference, expectation propagation, last layer methods.	
+ Name five more methods for approximating posteriors in BNNs.	 SNGP, MCMC methods, SGD trajectory based methods, Deep ensembles, Approximating the posterior predictive distribution, Tempered and cold posteriors	
+ What is a good review on priors for BNNs?	" ""Priors in Bayesian Deep Learning  A Review"" by Vincent Fortuin et al"	
+ What are the usual choices for priors of weights/biases?	 Gaussian distribution (can be a diagonal matrix to allow independent weights, and the mean usually set at 0)	
+ What does nin refer to regarding weight initialization?	 Fan-in, number of nodes in previous layer	
+ What does nout refer to regarding weight initialization?	 Fan-out, number of nodes in current layer	
+ What does parameter vector 𝜃 represent in BNNs?	 It contains entries of all the matrices and bias vectors (i.e., weights) and variance parameters.	
+ What are the Gaussian prior parameters called?	 Hyperparameters.	
+ What is an alternative prior in BNNs other than Gaussian?	 Sparsity-promoting prior	
+ What is a simplification in defining priors in BNNs?	 Covariance matrix is diagonal or a multiple of the identity	
+" What is learned in ""empirical Bayes""?"	 Hyperparameters are optimized by maximizing the marginal likelihood.	
+ What is a potential downside of cross-validation?	 It can be computationally expensive since it scales exponentially with the number of hyperparameters.	
+ What kind of prior is involved in neural architecture search?	 Architectural priors or structural prior	
+ What is a good review on priors for BNNs?	" ""Priors in Bayesian Deep Learning  A Review"" by Vincent Fortuin et al"	
+ What are the usual choices for priors of weights/biases?	 Gaussian distribution (can be a diagonal matrix to allow independent weights, and the mean usually set at 0)	
+ What does nin refer to regarding weight initialization?	 Fan-in, number of nodes in previous layer	
+ What does nout refer to regarding weight initialization?	 Fan-out, number of nodes in current layer	
+ What does parameter vector 𝜃 represent in BNNs?	 It contains entries of all the matrices and bias vectors (i.e., weights) and variance parameters.	
+ What are the Gaussian prior parameters called?	 Hyperparameters.	
+ What is an alternative prior in BNNs other than Gaussian?	 Sparsity-promoting prior	
+ What is a simplification in defining priors in BNNs?	 Covariance matrix is diagonal or a multiple of the identity	
+" What is learned in ""empirical Bayes""?"	 Hyperparameters are optimized by maximizing the marginal likelihood.	
+ What is a potential downside of cross-validation?	 It can be computationally expensive since it scales exponentially with the number of hyperparameters.	
+ What kind of prior is involved in neural architecture search?	 Architectural priors or structural prior	
+ What is the simplest graph for message passing?	 A 1D chain.	 Message Passing, Chains
+ What does an HMM model?	 Latent variable sequences	 Message Passing, HMMs
+ What are the two main types of variables in an HMM?	 Hidden (latent) and observations.	 Message Passing, HMMs
+ What do you compute in the posterior inference of the HMMs?	 The probability distribution of the hidden variables given all of the data.	 Message Passing, HMMs, Inference
+ What is an instance of smoothing in terms of HMMs?	 Posterior inference on hidden states.	 Message Passing, HMMs, Smoothing
+ What is Forward Filtering Backward Smoothing?	 A method that combines a forward and backward pass in order to obtain smoother results	 Message Passing, HMMs, Smoothing, FFBS
+ What needs to be computed to apply the FFBS algorithm?	 The factors of the posterior independently.	 Message Passing, HMMs, Inference
+ What are the key steps in the forwards algorithm?	 The factors of the posterior.	 Message Passing, Chains
+ What is computed in the backwards pass in forward-backward algorithm?	 The backwards recursions.	 Message Passing, Chains
+ What is Viterbi algorithm?	 An algorithm that finds the most likely sequence of latent states given the observations.	 Message Passing, Chains, Viterbi
+ To what other graph structures are message passing algorithms extended to?	 Trees.	 Message Passing, Trees
+ Which methods does belief propagation in trees build from?	 HMMs and Kalman smoothing.	 Message Passing, Trees
+ What are the two key algorithms for BP in trees?	 Sum product and max product.	 Message Passing, Trees
+ What does the Sum-product algorithm compute in trees?	 Marginal distributions.	 Message Passing, Trees, Sum-Product
+ What does the Max-product algorithm compute in trees?	 The maximum a posteriori sequence of hidden states.	 Message Passing, Trees, Max-Product
+ What is another name for directed graphical models?	 Belief networks or Bayesian networks (though they are not necessarily Bayesian).	 PGMs, Directed
+ What is a DAG?	 Directed Acyclic Graph	 PGMs, Directed
+ What is the key characteristic of a directed graphical model?	 It's based on a DAG, in which the edges have direction.	 PGMs, Directed
+ What is meant by topological ordering in a DAG?	 Parents come before children.	 PGMs, Directed, Ordering
+ What is the ordered Markov property in a DAG?	 Each node is conditionally independent of its predecessors (except its parents) given its parents.	 PGMs, Directed, Ordering
+ How is the joint distribution factored in a DAG according to the ordered Markov property?	 p(x1 N) = product from i=1 to N of p(xi|x_pa(i)) where x_pa(i) represents the parents of i	 PGMs, Directed, Joint Distribution
+ What is a Conditional Probability Table (CPT) ?	 A table that defines a distribution over a variable given other variables. Commonly used in discrete random variables.	 PGMs, Directed, CPT
+ What is a first order Markov chain?	 Each state is only dependent on the previous state.	 PGMs, Markov Chain
+ What is a second order Markov chain?	 Each state is dependent on two previous states.	 PGMs, Markov Chain
+" What is the ""explaining away"" effect?"	 When observing a common child makes two parent nodes conditionally dependent, which were independent a priori	 PGMs, Directed, Explaining Away
+ What is another name for the explaining away effect?	 Berkson's paradox or inter-causal reasoning	 PGMs, Directed, Explaining Away
+ What are Sigmoid Belief Nets?	 Hierarchical latent variable models with binary latent variables and logistic regression latent CPDs	 PGMs, Directed, Sigmoid
+ In terms of probability models, when do you have a sigmoid belief net?	 When you have binary latent variables and the latent CPDs are logistic regression models.	 PGMs, Directed, Sigmoid
+ What are the key elements when describing Conditional Independece in PGMs?	 X_A || X_B | X_C	 PGMs, Directed, Conditional Independence
+ What does it mean when we say that variables X_A and X_B are conditionally independent given X_C?	 Knowing X_C renders X_A and X_B unrelated.	 PGMs, Directed, Conditional Independence
+ What does an I-map represent?	 A graph encoding the conditional independence statements in a distribution.	 PGMs, Directed, Conditional Independence
+ What does it mean if a graph G is an I-map of a distribution p?	 I(G) ⊆ I(p), that is, all the CI statements encoded by the graph G are also true in p.	 PGMs, Directed, Conditional Independence
+" What is meant by a ""minimal"" I-map?"	 A graph where there is no sub-graph that is still an I-map of the given distribution.	 PGMs, Directed, Conditional Independence
+ What does it mean for path P to be d-separated by C?	 Either  P contains chain with node in C. P contains a tent with node in C or P contains collider with node not in C nor its descendant.	 PGMs, Directed, Global Markov
+ What are the three types of structures when considering d-separation	 Chain, Tent and Collider.	 PGMs, Directed, d-separation
+ How is a chain structure defined in a DAG with regards to CI?	 Observing a node separates its predecessor and successor.	 PGMs, Directed, d-separation
+ How is a tent (fork) structure defined in a DAG with regards to CI?	 Observing a root node separates its children nodes.	 PGMs, Directed, d-separation
+ How is a collider structure defined in a DAG with regards to CI?	 Observing a common child node makes its parent nodes dependent.	 PGMs, Directed, d-separation
+ How are conditional independencies related to d-separation in a DAG?	 X_A || X_B | X_C <=> A is d-separated from B given C.	 PGMs, Directed, d-separation
+" What does a ""Markov Blanket"" of node i mean?"	 It is the smallest set of nodes that render node i independent of the rest of the graph.	 PGMs, Directed, Markov Blanket
+ What is the Markov Blanket of a node i?	 mb(i) = ch(i) U pa(i) U copa(i) (children, parents and co-parents of the node).	 PGMs, Directed, Markov Blanket
+ What does local Markov property for DAGs mean?	 A node is conditionally independent of non-descendants given its parents.	 PGMs, Directed, Markov Properties
+" What does the ""ordered Markov property"" mean for a DAG?"	 Each node is conditionally independent of its predecessors (except parents) given its parents.	 PGMs, Directed, Markov Properties
+ What is the factorization property?	 Any distribution that is Markov to a graph, can be factored in terms of the Conditional Probability Distributions for every node.	 PGMs, Directed, Markov Properties
+ What is ancestral sampling?	 A sampling method where you sample parents before children using the topological ordering in a DAG.	 PGMs, Directed, Sampling
+" What does ""inference"" refer to in the context of PGMs?"	 Computing a posterior distribution over query nodes given observed values and marginalized over nuisance variables.	 PGMs, Directed, Inference
+" What is a ""posterior marginal"" of node i?"	 Posterior distribution of node i given observed evidence.	 PGMs, Directed, Inference
+ What is parameter learning in PGMs?	 estimating the parameters of a model given the data and its distribution	 PGMs, Directed, Learning
+ What is a linear-Gaussian SSM?	 A state-space model where the state transition and observation models are linear and have Gaussian noise.	 SSMs, Linear-Gaussian
+ What matrices and vectors define the linear model?	 Matrices Ft, Bt, Ht, Dt and vectors bt, dt.	 SSMs, Linear-Gaussian
+ What matrices define the Gaussian noise?	 The covariance matrices Qt and Rt.	 SSMs, Linear-Gaussian
+ What is the Kalman filter?	 An algorithm for exact Bayesian filtering for linear-Gaussian SSMs.	 SSMs, Kalman Filter
+ In the Kalman filter, what is performed in the prediction step?	 The one-step-ahead prediction for the hidden state.	 SSMs, Kalman Filter, Prediction
+" In the Kalman filter, what does the ""time update"" refer to?"	 The prediction step.	 SSMs, Kalman Filter, Prediction
+ What is the Kalman gain matrix?	 A weighting matrix used during the update step of the Kalman filter.	 SSMs, Kalman Filter, Update
+ In the Kalman filter, what is performed in the update step?	 The posterior given an observation.	 SSMs, Kalman Filter, Update
+" In the Kalman filter, what does ""measurement update"" refer to?"	 The update step.	 SSMs, Kalman Filter, Update
+" What is the ""residual error"" or ""innovation term""?"	 The difference between the observation and the prediction, yt - y_hat_t.	 SSMs, Kalman Filter, Update
+ What is the Kalman smoother (RTS smoother)?	 An algorithm for Bayesian smoothing for linear-Gaussian SSMs.	 SSMs, Kalman Smoother
+ What does RTS stand for?	 Rauch, Tung, and Striebel	 SSMs, Kalman Smoother
+ How are the distributions treated in the Kalman smoother?	 They are written in closed form	 SSMs, Kalman Smoother
+ What is the main goal of local linearization?	 Extend the Kalman filter and smoother to nonlinear systems.	 SSMs, Local Linearization
+ What does the extended Kalman filter use to address non-linear models?	 Linearize the dynamics and observations models using a first order Taylor expansion.	 SSMs, Local Linearization, EKF
+ What is the core idea of the extended Kalman filter?	 To approximate a non-stationary nonlinear dynamical system as a stationary linear one.	 SSMs, Local Linearization, EKF
+ What is required to apply local linearization?	 The system to be differentiable and invertible.	 SSMs, Local Linearization
+ What does the Jacobian allow us to do?	 Approximate the expectation of a non-linear function.	 SSMs, Local Linearization
+ What type of graphs do Message passing algorithms work best on?	 Sparse graphs	 Message Passing, Intro
+ What do message passing algorithms leverage for efficient posterior inference?	 CI properties encoded in the graph.	 Message Passing, Intro
+ On what principle are message passing algorithms based?	 Dynamic programming.	 Message Passing, Intro
+ What is the main principle of Dynamic Programming?	 Finding the global solution by finding local solutions to sub-problems.	 Message Passing, Intro
+ What do message passing algorithms maintain on nodes?	 Probability distributions (beliefs).	 Message Passing, Intro
+ How do nodes update beliefs in a message passing algorithm?	 Given evidence from some part of the graph	 Message Passing, Intro
+ What is passed between nodes in a message passing algorithm?	 Beliefs	 Message Passing, Intro
+ What are message passing algorithms also known as?	 Belief propagation (BP) algorithms.	 Message Passing, Intro
+ What are Probabilistic Graphical Models (PGMs)?	 Graph structures used to represent conditional dependencies and independencies in a set of random variables.	 PGMs, Intro
+ In a PGM, what do nodes represent?	 Random variables.	 PGMs, Intro
+ In a PGM, what do edges represent?	 Conditional dependence.	 PGMs, Intro
+ In a PGM, what does the lack of an edge represent?	 Conditional independence (CI).	 PGMs, Intro
+ What are the main types of graphical models?	 Directed, Undirected, and combinations of both.	 PGMs, Types
+ What is a State Space Model (SSM)?	 A model that describes a system using latent variables that evolve over time and are observed through a noisy process.	 SSMs, Intro
+ What are the three main components of an SSM?	 hidden (latent) state, observations and optional inputs.	 SSMs, Intro
+" What is ""state estimation"" in the context of SSMs?"	 Posterior inference about the hidden states.	 SSMs, State Estimation
+" What is ""filtering"" in the context of SSMs?"	 Estimating the hidden states sequentially using past observations.	 SSMs, Filtering
+" What is ""smoothing"" in the context of SSMs?"	 Estimating the hidden states using past and future observations (offline).	 SSMs, Smoothing
+ What is the goal of the Bayes filter?	 Recursively compute beliefs about the hidden states.	 SSMs, Filtering
+ What type of data the Bayes filter use?	 Online data stream.	 SSMs, Filtering
+ What is the prediction step in Bayes filter based on?	 The Chapman-Kolmogorov equation.	 SSMs, Filtering, Prediction
+ What is computed in the update step of the Bayes filter?	 The posterior using the observation.	 SSMs, Filtering, Update
+ What are FFBS used for?	 Combining Filtering (forward pass) with smoothing (backward pass)	 SSMs, Smoothing, FFBS
+ What is computed in the forward pass in the smoothing equations?	 The filter of the system.	 SSMs, Smoothing
+ What is computed in the backward pass in smoothing equations?	 The smoothing distributions.	 SSMs, Smoothing
+ What does the term Gaussian Ansatz refer to?	 the assumption that we can work with gaussian distributions	 SSMs, Gaussian Ansatz
+ What is considered in the linear-Gaussian model?	 The functions that are related to the SSM are linear and noise is Gaussian.	 SSMs, Gaussian Ansatz
+ What is loopy belief propagation?	 An approximation algorithm that applies belief propagation to graphs that contain loops.	 Message Passing, Loopy BP
+ What is variable elimination?	 An inference algorithm that simplifies a factor graph.	 Message Passing, VE
+ What does junction tree algorithm do?	 Creates a tree from a general graph to apply belief propagation.	 Message Passing, JTA
+ How is inference treated with regards to optimization?	 An approach that uses message passing to optimize parameters	 Message Passing, Optimization
+ What are undirected graphical models also known as?	 Markov random fields or Markov networks.	 PGMs, Undirected
+ What is a key difference between directed and undirected graphical models?	 Undirected models don't require specifying edge orientations.	 PGMs, Undirected
+ What is the underlying structure in undirected graphical models?	 An undirected graph.	 PGMs, Undirected
+ In an undirected graph, what do you associate to each maximal clique?	 A potential function.	 PGMs, Undirected, Joint Distribution
+ What is a clique in an undirected graph?	 A set of nodes that are all neighbors of each other.	 PGMs, Undirected, Joint Distribution
+ What is a maximal clique in an undirected graph?	 A clique that cannot be made larger without losing the clique property.	 PGMs, Undirected, Joint Distribution
+ What do maximal cliques help define in an undirected graph?	 A potential function is associated with each maximal clique.	 PGMs, Undirected, Joint Distribution
+ What is a potential function?	 Any non-negative function that relates the variables in the clique.	 PGMs, Undirected, Joint Distribution
+ What is the Hammersley-Clifford theorem about?	 A theorem describing the structure of a distribution of a UPGM, by relating its joint distribution to the potential functions.	 PGMs, Undirected, Joint Distribution
+ According to the Hammersley-Clifford Theorem, how is the joint distribution structured in an UPGM?	 It is proportional to the product of potential functions over maximal cliques.	 PGMs, Undirected, Joint Distribution
+ What is a partition function?	 A normalization factor that makes the joint distribution sum to one	 PGMs, Undirected, Joint Distribution
+ What is a Gibbs distribution?	 An alternative way to represent a joint distribution based on the energy of the model.	 PGMs, Undirected, Gibbs
+ How is an energy based model defined in terms of the energy?	 The probability is related to the exponential of the negative energy	 PGMs, Undirected, Gibbs
+ What is a Fully Visible Markov Random Field?	 A Markov Random field where there are no latent variables.	 PGMs, Undirected, MRF
+ What is a MRF with latent variables?	 A Markov Random Field that has latent variables	 PGMs, Undirected, MRF
+ What is a Maximum Entropy Model?	 Models that are based on the principle of maximizing entropy while satisfying constraints.	 PGMs, Undirected, Maximum Entropy
+ What is a Gaussian MRF?	 A Markov Random Field that has a joint Gaussian distribution.	 PGMs, Undirected, Gaussian
+ How is conditional independence defined in undirected graphs?	 Simple graph separation.	 PGMs, Undirected, CI
+ What is the undirected global Markov property?	 A | B | C if and only if C separates A from B in the graph.	 PGMs, Undirected, CI
+ What does a node being separated by C from other nodes mean in UPGMs?	 If you remove C from the graph, there is no path connecting A to B.	 PGMs, Undirected, CI
+ What is a local Markov property in an UPGM?	 A node is conditionally independent of all other nodes except its Markov Blanket	 PGMs, Undirected, Markov Properties
+ What is the closure of a node?	 The Markov blanket of a node and the node itself.	 PGMs, Undirected, Markov Properties
+ What is a node's Markov blanket?	 The set of immediate neighbors of a node in an undirected graph.	 PGMs, Undirected, Markov Properties
+ What is the pairwise Markov property for UPGMs?	 Two nodes are conditionally independent given the rest if there's no edge between them.	 PGMs, Undirected, Markov Properties
+ Why is it useful to convert a DPGM to an UPGM?	 Because determining conditional independence relationships is easier by using simple graph separation.	 PGMs, Conversion
+ What do you need to do when converting chain or tent structures from a DPGM to a UPGM?	 Drop the orientation of the edges	 PGMs, Conversion
+ What do you need to do when converting collider structures from a DPGM to a UPGM?	 Add an edge between the co-parents and drop the orientation	 PGMs, Conversion
+ What is moralization in the context of PGMs?	 Converting a DPGM into an UPGM using the previous rules.	 PGMs, Conversion, Moralization
+ What is an ancestral graph?	 A graph that takes into consideration only a specific set of variables.	 PGMs, Conversion, Moralization
+ Why do you use MCMC for sampling from UPGMs?	 Because it can be quite slow to do otherwise.	 PGMs, Undirected, Generation
+" What is ""inference"" about in UPGMs?"	 About computing the posterior distribution over nodes.	 PGMs, Undirected, Inference
+ Why is the learning process computationally expensive in UPGMs?	 Because the partition function is doubly intractable	 PGMs, Undirected, Learning
+ What are CRF?	 Conditional Random Fields.	 PGMs, CRFs
+ What is the core difference between Directed PGMs and Undirected PGMs?	 The use and absence of edge directions.	 PGMs, Comparison
+ What are Factor Graphs?	 Graphical models that explicitly represent factors in a factorization.	 PGMs, Factor Graphs
+ What are Bipartite factor graphs?	 Factor graphs that have nodes separated by types.	 PGMs, Factor Graphs
+ What are Forney Factor Graphs?	 Factor graphs where the factors are represented as nodes.	 PGMs, Factor Graphs
+ What is a Structural Causal Model?	 A triple that combines exogenous, endogenous variables and functions.	 PGMs, Structural Causal Models
+ What does the causal Markov assumption states?	 That all of the causal relevant factors are included in the model.	 PGMs, Structural Causal Models
+ What is a structural equation model?	 A structural causal model with linear functional relationships and Gaussian exogenous variables.	 PGMs, Structural Equation Models
+" What is ""do operator"" in Structural Causal Models?"	 An action that sets a variable to a given value, which makes the graph causal.	 PGMs, Interventions
+ What are counterfactuals?	 Reasoning about what would have happened if things had been different.	 PGMs, Counterfactuals
+ How are observational and interventional studies defined in regards to counterfactuals?	 observational studies predict effects of causes, interventional studies predict causes of effects.	 PGMs, Counterfactuals
+ What are Monte Carlo methods?	 Stochastic approaches for solving numerical integration problems.	 MC, Intro
+ What is the general idea of Monte Carlo integration?	 To approximate an integral by averaging function values at random samples.	 MC, Intro
+ What is the Monte Carlo approximation of an expectation?	 1/Ns * sum from n=1 to Ns of φ(x_n) where x_n is a sample drawn from pi(x)	 MC, Integration
+ What is a key advantage of Monte Carlo Integration?	 Its accuracy is independent of the dimensionality of x.	 MC, Integration
+ Why is the importance sampling algorithm needed?	 It is hard to sample from the target distribution directly	 MC, Importance Sampling
+ In importance sampling, from where do we obtain samples?	 From a proposal distribution, q(x)	 MC, Importance Sampling
+ In importance sampling, how do we account for inaccuracy of using proposal distribution?	 By associating weights with each sample.	 MC, Importance Sampling
+ What is a requirement for the proposal distribution in importance sampling?	 Its support must cover the support of the target distribution, supp(q) ⊇ supp(π)	 MC, Direct Importance Sampling
+ What is Direct Importance Sampling?	 When the target distribution can be evaluated analytically but not sampled directly from	 MC, Direct Importance Sampling
+ What are the weights associated with the samples in Direct Importance Sampling?	 They are given by π(xn) / q(xn).	 MC, Direct Importance Sampling
+ What is self-normalized importance sampling used for?	 Used when we can only evaluate the unnormalized target distribution	 MC, Self-Normalized
+ What does the self-normalized method approximate with importance sampling?	 the normalization constant	 MC, Self-Normalized
+ What happens to the bias of the estimator in self normalized Importance sampling as the number of samples increases?	 It goes to zero under some weak assumptions	 MC, Self-Normalized
+ How can a good proposal be learned for importance sampling?	 By optimizing the ELBO	 MC, Proposal
+ What is the standard error in a Monte Carlo Estimate?	 O(1/sqrt(S)). S is the number of (independent) samples	 MC, Variance
+ How can we reduce the variance in MC estimates?	 By using Rao-Blackwellization	 MC, Rao-Blackwellization
+ When using Rao-Blackwellization, what do you need to be able to do?	 Analytically marginalize out some variables	 MC, Rao-Blackwellization
+ Does the Rao-Blackwellization change bias?	 No, it's unbiased and has lower variance	 MC, Rao-Blackwellization
+ What is a key use of MCMC methods?	 Sampling from high-dimensional distributions.	 MCMC, Intro
+ What is a key part of the MCMC algorithm construction?	 Construct a Markov chain whose stationary distribution is the target density.	 MCMC, Intro
+" In MCMC, what is a ""random walk""?"	 We perform a random walk on the state space so that the fraction of time we spend in each state is proportional to the target distribution.	 MCMC, Intro
+" What does the ""mixing time"" in MCMC refer to?"	 The time it takes for the Markov chain to reach stationarity.	 MCMC, Intro
+ In MCMC, what do you do with the initial samples of the chain?	 Discard them because they do not come from the stationary distribution.	 MCMC, Intro
+ What does the Metropolis Hastings Algorithm allow you to do?	 Generate samples from a target distribution using a proposal distribution	 MCMC, MH
+ What is the key principle of Metropolis Hastings algorithm?	 Decide whether to accept a new proposal or reject it based on acceptance probability	 MCMC, MH
+ If a proposed state is more likely than the current state, will it always be accepted in MH Algorithm?	 Yes	 MCMC, MH
+ What does symmetric proposal in MH mean?	 q(x' | x) = q(x | x').	 MCMC, MH
+ What is acceptance probability in Metropolis Hastings algorithm?	 min(1, pi(x')/pi(x)).	 MCMC, MH
+ What is needed in the MH algorithm if the proposal is asymmetric?	 Hastings Correction	 MCMC, MH
+ What does Hastings correction take into account?	 The proposal distribution and target distribution	 MCMC, MH
+ How does the Gibbs Sampling improve upon MH?	 By automatically creating a good proposal distribution, with acceptance probability always 1.	 MCMC, Gibbs Sampling
+ What does Gibbs sampling exploit?	 Conditional independence of the distribution.	 MCMC, Gibbs Sampling
+ What does the full conditional refer to in Gibbs sampling?	 the conditional distribution of a variable given all other variables in the model.	 MCMC, Gibbs Sampling
+ In Gibbs sampling, what variables are updated at each step?	 Only one variable at each time.	 MCMC, Gibbs Sampling
+ What should we do if we cannot sample from a full conditional distribution when using Gibbs Sampling?	 We can use Metropolis Within Gibbs, by using a proposal distribution q.	 MCMC, Metropolis Within Gibbs
+ What does Hamiltonian Monte Carlo (HMC) use?	 Gradient information to guide the local moves.	 MCMC, HMC
+" In MCMC, what does ""burn-in phase"" refer to?"	 Initial period where the samples will be ignored.	 MCMC, Convergence
+ Why do we need to plot trace plots in MCMC?	 To check if the method has converged	 MCMC, Convergence
+ When you plot trace plots, what are you looking for?	 That plots converge to the same distribution, i.e., the chains are mixing	 MCMC, Convergence
+ Is it sufficient for MCMC chain to have reached its stationary distribution?	 No, we must also consider the fact that the samples are not independent and hence a lot of samples are needed	 MCMC, Convergence
+ What is an important term when evaluating results of a MCMC?	 Effective sample size	 MCMC, Convergence
+ What does Variational Inference (VI) reduce posterior inference to?	 Optimization	 VI, Intro
+ In VI, what are the three components considered in a model?	 Unknown (latent) variables (z), known variables (x), fixed parameters (θ)	 VI, Intro
+ What is the goal of VI in regards to posterior inference?	 To approximate the posterior distribution because it's intractable to compute.	 VI, Intro
+ What is the KL divergence used for in VI?	 To measure the difference between the approximate posterior q(z) and the true posterior p(z|x)	 VI, Intro
+ How do we practically handle the intractable posterior?	 By picking a parametric family Q with variational parameters, call ψ.	 VI, Introduction
+ What is the variational free energy in VI?	 A function we minimize to find the approximate posterior (or equivalently, maximise ELBO).	 VI, ELBO
+ What does ELBO stand for?	 Evidence Lower Bound	 VI, ELBO
+ How is the ELBO related to the true log-evidence?	 It's a lower bound, i.e., L(θ,ψ|x) <= log p(x).	 VI, ELBO
+ What is the first term in the ELBO equation?	 The expected log joint, E[log p(x,z)]	 VI, ELBO
+ What does the entropy term in ELBO encourage?	 The posterior to have maximum entropy.	 VI, ELBO
+ What does the KL term in ELBO act as?	 A regularizer, preventing the posterior from diverging too much from the prior.	 VI, ELBO
+ Describe Fixed-form VI.	 Picking a convenient functional form for the variational distribution (e.g., multivariate Gaussian) and optimizing the ELBO.	 VI, Approaches
+ Describe Free-form VI.	 Making the mean-field assumption that the posterior factorizes into independent distributions.	 VI, Approaches
+ What is the mean-field assumption?	 The posterior factorizes as q_ψ(z) = Π q_j(z_j)	 VI, Mean-Field
+ In Free-form VI, what do we derive from maximizing the ELBO wrt each group of variational parameters one at a time?	 Optimal distribution form.	 VI, Free-Form
+" What does it mean if the approximate posterior has a ""full covariance matrix""?"	 It can match the exact posterior but is intractable in high dimensions.	 VI, Example
+" What happens when a ""diagonal covariance matrix"" is used in VI?"	 The approximation is often overconfident.	 VI, Example
+ How do we maximize likelihood in the presence of latent variables and parameters	 By maximizing the ELBO	 VI, Parameter Estimation
+ What does the Variational EM algorithm alternate between?	 Maximizing the ELBO wrt variational parameters (E-step) and maximizing the ELBO wrt model parameters (M-step).	 VI, Parameter Estimation
+ What is the alternative to Variational EM algorithm when it comes to parameter estimation?	 Stochastic VI	 VI, Parameter Estimation
+ What do we do when using the gradient-based methods for VI?	 We choose a convenient form for the approximation and optimize the ELBO using gradient-based methods	 VI, Gradients
+ When using SGD in VI, what do you need?	 An unbiased estimate of the gradient of the ELBO	 VI, Gradients
+ How are generative parameters updated in gradient based methods for VI?	 By pushing gradients inside the expectation with a single Monte Carlo sample.	 VI, Gradients
+ Why do we use Reparameterization in gradient descent for inference parameters?	 Because we cannot push gradients inside the expectation with regular Monte Carlo approximation.	 VI, RVI
+ What is reparameterization trick?	 Rewriting z ~ qψ(z) as differentiable transformation of epsilon ~ p(epsilon), i.e. z = h(ψ, x, ϵ).	 VI, RVI
+ What are two advantages of using a reparameterization trick?	 1. Allows us to push gradients inside the expectation. 2. Change of variables formula	 VI, RVI
+ What does the score function estimator allows us to do in VI?	 Estimate the gradient of ELBO when we cannot compute it analytically.	 VI, Blackbox
+ What does the BBVI method allow you to compute?	 A Monte Carlo approximation to gradient based on the score function estimator.	 VI, Blackbox
+ What does CAVI stand for?	 Coordinate Ascent Variational Inference	 VI, CAVI
+ What does CAVI allow us to do?	 Optimize each variable by using a mean field approximation scheme	 VI, CAVI
+ When using CAVI, what is the convergence guarantee?	 The ELBO is guaranteed to converge since the bound is concave wrt each factor qj.	 VI, CAVI
+ What are variational bayes in regards to variational inference?	 We treat the parameters as latent variables and maximize the ELBO over all latent and parameter variables	 VI, Variational Bayes
+ In variational Bayes, what do we assume in regards to the variational posterior?	 We assume that the variational posterior factorizes.	 VI, Variational Bayes
+ What are some problems with lower bound maximization in standard VI?	 It leads to zero-forcing behavior, which means the approximate posterior can be too compact.	 VI, Goodies
+ What do we minimize in order to avoid the zero-forcing behavior?	 DKL(p||q).	 VI, Goodies
+ What is the binomial distribution used for?	 Modeling the number of successes in a fixed number of independent Bernoulli trials.	
+ What is the categorical distribution used for?	 Modeling the probability of a variable taking on one of K different categories.	
+ What is the Poisson distribution used for?	 Modeling the number of events occurring in a fixed interval of time if events occur at a constant rate and are independent.	
+ What are the parameters of the Gamma distribution?	 a and b, where a is a shape parameter and b is a rate parameter. The Gamma distribution has support on R+.	
+ What is the Beta distribution used for?	 Modeling a probability. The Beta distribution has support on the [0,1] interval.	
+ What are the parameters of the Gaussian distribution?	 μ (mean) and σ² (variance).	
+ What is the central limit theorem?	 The distribution of sample means from large samples tends towards a Gaussian distribution, regardless of the underlying distribution.	
+" Why is the Gaussian distribution ""not robust""?"	 Sensitive to outliers due to exponentially fast decaying tails.	
+ Give examples of more robust distributions.	 Laplace, Student t, Cauchy.	
+ What are the parameters of the multivariate normal distribution?	 μ (mean vector) and Σ (covariance matrix).	
+ What are different forms of the covariance matrix in the multivariate Gaussian?	 Full, Diagonal, and Spherical.	
+ What is a mixture of Gaussian models (GMM)?	 A probability distribution constructed as a weighted sum of multiple Gaussian distributions.	
+ What is a Matrix Normal distribution used for?	 Modeling matrix-valued random variables.	
+ What is the Wishart distribution used for?	 Modeling covariance matrices.	
+ What is the Dirichlet distribution used for?	 Modeling probability vectors (unit simplex).	
+ Define conditional probability.	 P(A|B) = P(A ∩ B) / P(B)	
+ How can the joint probability be rewritten using conditional probability?	 P(A ∩ B) = P(A|B)P(B) = P(B|A)P(A)	
+ What does conditional probability measure?	 It measures how likely an event A is, given that event B has happened.	
+ State the law of total probability.	 If {Aᵢ} forms a partition of Ω, then P(B) = ΣᵢP(B|Aᵢ)P(Aᵢ)	
+ What does it mean for two events to be independent?	 P(A ∩ B) = P(A)P(B) or, equivalently, P(A|B) = P(A)	
+ What does it mean for two events to be conditionally independent given a third event?	 P(A ∩ B | C) = P(A | C)P(B | C)	
+ State Bayes' rule for events.	 P(E₁|E₂) = P(E₂|E₁)P(E₁) / P(E₂)	
+ State Bayes' rule for the discrete case.	 p(X = k | E) = [p(E | X = k)p(X = k)] / [Σₖ'p(E | X = k')p(X = k')]	
+ State Bayes' rule for the continuous case.	 p(x | E) = [p(E | x)p(x)] / [∫ₛ p(E | x')p(x')dx']	
+ What is a Markov chain?	 A sequence of random variables where the probability of each future state depends only on the present state and not on past states.	
+ State the Markov property.	 P(xt+τ | x₁, ..., xt) = P(xt+τ | xt)	
+ What is a Markov model?	 A model based on the Markov property and can be described by the conditional probabilities of moving from one state to another.	
+ What is a stationary Markov model?	 A Markov model where the probability of transitions does not depend on time.	
+ What is a finite-state Markov chain?	 A Markov chain where the state space is finite.	
+ What is a transition matrix?	 A matrix that represents the probabilities of transitioning between states in a Markov chain.	
+ What is a stochastic matrix?	 A square matrix with non-negative entries such that the rows sum to 1.	
+ What is an n-step transition matrix?	 A transition matrix that represents transition probabilities over n steps.	
+ State the Chapman-Kolmogorov equation.	 Aij(m + n) = Σₖ Aᵢₖ(m)Aₖⱼ(n).	
+ What does a Stationary distribution capture, and how is it denoted?	 The long-term distribution over states; denoted by π.	
+ What is a probability space?	 A probability space is a triple (Ω, F, P) where  Ω is the sample space, F is the event space (a σ-algebra), and P is the probability measure.	
+ What is the sample space (Ω)?	 The set of all possible outcomes of a random experiment.	
+ What is the event space (F)?	 A collection of subsets of the sample space Ω; a σ-algebra.	
+ What is a σ-algebra?	 A collection F of subsets of Ω that includes the empty set and Ω, is closed under complementation, and closed under countable unions and intersections.	
+ What is the probability measure (P)?	 A function P  F → [0,1] that assigns a probability to each event in the event space F, and that satisfies the Kolmogorov axioms.	
+ List the Kolmogorov axioms.	 (1) P(E) ≥ 0 for all E in F. (2) P(Ω) = 1. (3) For disjoint events, P(∪ᵢEᵢ) = ΣᵢP(Eᵢ).	
+" What does ""only finite additivity"" imply about the Kolmogorov axioms?"	 The additivity axiom only holds for finite sets of disjoint events, rather than countable sets. (Subjectivist approach to probability de Finetti).	
+ What is meant by super/subadditivity in probability?	 Relaxation of the standard additivity axiom; can represent imprecise probabilities where probabilities are given by intervals. (Imprecise Approach to Probability Walley (1991); Augustin et al. (2014)).	
+ What is a random variable?	 A function that assigns a number to each outcome in the sample space.	
+ What is a discrete random variable?	 A random variable whose range is countable.	
+" What is the ""state space"" of a random variable?"	 The range of the random variable, i.e. the set of all possible values it can take.	
+ What is a probability mass function (pmf)?	 A function that gives the probability of each discrete value of a random variable.	
+ How do you represent a pmf?	 As a histogram or a parametric function.	
+ What is a continuous random variable?	 A random variable that can take any value within a given range, i.e. non-countable.	
+ What is the Lebesgue measure?	" A way to measure the length of intervals on the real line, and to quantify the ""size"" of sets, that is a generalization of the notion of length, area, and volume."	
+ What is the Radon-Nikodym derivative?	 If probability P is absolutely continuous with respect to the Lebesgue measure (l), then the Radon-Nikodym derivative dP/dl exists, which is called the probability density function (pdf).	
+ What is a probability density function (pdf)?	 A function, for a continuous random variable, whose integral over an interval is the probability of the variable falling in that interval.	
+ What is a cumulative distribution function (cdf)?	 A function that gives the probability that a random variable is less than or equal to a given value.	
+ How is the cdf defined for a continuous random variable?	 F(x) = P(X ≤ x) = ∫₋∞ˣ p(x')dx'	
+ How does statistics differ from probability theory?	 Probability theory models outcomes given known parameters, statistics infers unknown parameters given observations.	
+ What is Bayesian statistics?	 A framework for statistical inference that treats parameters as random variables and uses prior beliefs and observed data to compute posterior distributions.	
+ What does the posterior distribution capture?	 The probability distribution of the parameters given observed data and prior beliefs.	
+ What is a prior distribution?	 A probability distribution over parameters that represents our beliefs before observing the data.	
+ What is the likelihood?	 The probability of the observed data given a specific parameter value.	
+ What is the marginal likelihood?	 The probability of the observed data regardless of the value of parameters.	
+ What is a Maximum A Posteriori (MAP) estimate?	 The parameter value that maximizes the posterior distribution.	
+ How does MAP relate to Maximum Likelihood Estimation (MLE)?	 If a uniform prior is used in MAP, the MAP estimate becomes the MLE estimate.	
+ When is the EM algorithm used, and what does it stand for?	 Expectation Maximization, used when probability models involve missing data/hidden variables to find MLE or MAP estimates.	
+ What are Highest Density Regions (HDRs)?	 Parameter regions containing a specified percentage of the posterior probability mass with the narrowest interval for each percentage.	
+ What is the posterior predictive distribution?	 The probability distribution of a new outcome given the observed data.	
+ How does Bayesian inference avoid overfitting in ML problems?	 By integrating over the unknown parameters.	
+ What is frequentist statistics?	 A framework for statistical inference that treats parameters as fixed and uses sampling distributions to quantify uncertainty.	
+ What is an estimator in frequentist statistics?	 A decision procedure that specifies the action to take when given some observed data.	
+ What is the sampling distribution?	 The distribution of an estimator if we repeat the experiment many times.	
+ What is the parametric bootstrap?	 Approximating the sampling distribution using the estimated parameters to resample new datasets.	
+ What does the asymptotic normality of the sampling distribution of the MLE state?	 The sampling distribution of the MLE converges to a Gaussian distribution with mean equal to the true parameter and precision equal to the Fisher Information matrix.	
+ What are some drawbacks of Frequentist Statistics?	 Can have counter-intuitive properties; and struggles to represent prior knowledge.	
+ What is a conjugate prior?	 A prior distribution where the posterior distribution is within the same family of distributions.	
+ Why are conjugate priors used?	 To simplify the computation of the posterior.	
+ What is a noninformative prior?	 A prior distribution that is designed to have a minimal effect on the posterior distribution.	
+ What are hierarchical priors?	 Priors that have their own prior distributions (hyperparameters).	
+ What is Empirical Bayes?	 An approach to setting the prior where the hyperparameters are first estimated using the data.	
+ Define model selection.	 The process of selecting the best model from a set of different models.	
+ Define model checking.	 Assessing the validity of a statistical model.	

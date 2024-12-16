@@ -1,0 +1,9 @@
+ What is a neural network (NN)?	 A computational model defined by successive compositions of linear and non-linear functions.	
+ What does a classical NN correspond to (graphically)?	 A graph consisting of nodes and edges linking some pairs of nodes.	
+" What is a ""perceptron"" in the context of neural networks?"	 The basic building block of neural networks, performing a weighted sum with bias and applying an activation function.	
+ What is the key linear operation in a neural network layer?	 An affine linear mapping, defined by a matrix and a bias vector.	
+ What is the role of non-linear operations in neural network layers?	 They allow coordinate-wise application of a non-linear function to the output of the linear operation.	
+ What do we stack in fully connected feedforward networks?	 Layers of linear and non-linear operations.	
+" What are the ""trainable parameters"" of a neural network?"	 Entries of the matrices and bias vectors for all layers (i.e., weights).	
+ What is another name for the classical fully connected feedforward NN?	 Multilayer Perceptron (MLP)	
+ How are classical NNs trained?	 By optimizing parameters via Empirical Risk Minimization (ERM), using gradient descent on a loss function.	

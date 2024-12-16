@@ -1,0 +1,18 @@
+Front: Define conditional probability.
+Back: P(A|B) = P(A ∩ B) / P(B)
+Front: How can the joint probability be rewritten using conditional probability?
+Back: P(A ∩ B) = P(A|B)P(B) = P(B|A)P(A)
+Front: What does conditional probability measure?
+Back: It measures how likely an event A is, given that event B has happened.
+Front: State the law of total probability.
+Back: If {Aᵢ} forms a partition of Ω, then P(B) = ΣᵢP(B|Aᵢ)P(Aᵢ)
+Front: What does it mean for two events to be independent?
+Back: P(A ∩ B) = P(A)P(B) or, equivalently, P(A|B) = P(A)
+Front: What does it mean for two events to be conditionally independent given a third event?
+Back: P(A ∩ B | C) = P(A | C)P(B | C)
+Front: State Bayes' rule for events.
+Back: P(E₁|E₂) = P(E₂|E₁)P(E₁) / P(E₂)
+Front: State Bayes' rule for the discrete case.
+Back: p(X = k | E) = [p(E | X = k)p(X = k)] / [Σₖ'p(E | X = k')p(X = k')]
+Front: State Bayes' rule for the continuous case.
+Back: p(x | E) = [p(E | x)p(x)] / [∫ₛ p(E | x')p(x')dx']

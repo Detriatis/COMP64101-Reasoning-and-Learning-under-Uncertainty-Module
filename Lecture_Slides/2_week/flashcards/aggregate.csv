@@ -1,0 +1,140 @@
+ What is the simplest graph for message passing?	 A 1D chain.	 Message Passing, Chains
+ What does an HMM model?	 Latent variable sequences	 Message Passing, HMMs
+ What are the two main types of variables in an HMM?	 Hidden (latent) and observations.	 Message Passing, HMMs
+ What do you compute in the posterior inference of the HMMs?	 The probability distribution of the hidden variables given all of the data.	 Message Passing, HMMs, Inference
+ What is an instance of smoothing in terms of HMMs?	 Posterior inference on hidden states.	 Message Passing, HMMs, Smoothing
+ What is Forward Filtering Backward Smoothing?	 A method that combines a forward and backward pass in order to obtain smoother results	 Message Passing, HMMs, Smoothing, FFBS
+ What needs to be computed to apply the FFBS algorithm?	 The factors of the posterior independently.	 Message Passing, HMMs, Inference
+ What are the key steps in the forwards algorithm?	 The factors of the posterior.	 Message Passing, Chains
+ What is computed in the backwards pass in forward-backward algorithm?	 The backwards recursions.	 Message Passing, Chains
+ What is Viterbi algorithm?	 An algorithm that finds the most likely sequence of latent states given the observations.	 Message Passing, Chains, Viterbi
+ To what other graph structures are message passing algorithms extended to?	 Trees.	 Message Passing, Trees
+ Which methods does belief propagation in trees build from?	 HMMs and Kalman smoothing.	 Message Passing, Trees
+ What are the two key algorithms for BP in trees?	 Sum product and max product.	 Message Passing, Trees
+ What does the Sum-product algorithm compute in trees?	 Marginal distributions.	 Message Passing, Trees, Sum-Product
+ What does the Max-product algorithm compute in trees?	 The maximum a posteriori sequence of hidden states.	 Message Passing, Trees, Max-Product
+ What is another name for directed graphical models?	 Belief networks or Bayesian networks (though they are not necessarily Bayesian).	 PGMs, Directed
+ What is a DAG?	 Directed Acyclic Graph	 PGMs, Directed
+ What is the key characteristic of a directed graphical model?	 It's based on a DAG, in which the edges have direction.	 PGMs, Directed
+ What is meant by topological ordering in a DAG?	 Parents come before children.	 PGMs, Directed, Ordering
+ What is the ordered Markov property in a DAG?	 Each node is conditionally independent of its predecessors (except its parents) given its parents.	 PGMs, Directed, Ordering
+ How is the joint distribution factored in a DAG according to the ordered Markov property?	 p(x1 N) = product from i=1 to N of p(xi|x_pa(i)) where x_pa(i) represents the parents of i	 PGMs, Directed, Joint Distribution
+ What is a Conditional Probability Table (CPT) ?	 A table that defines a distribution over a variable given other variables. Commonly used in discrete random variables.	 PGMs, Directed, CPT
+ What is a first order Markov chain?	 Each state is only dependent on the previous state.	 PGMs, Markov Chain
+ What is a second order Markov chain?	 Each state is dependent on two previous states.	 PGMs, Markov Chain
+" What is the ""explaining away"" effect?"	 When observing a common child makes two parent nodes conditionally dependent, which were independent a priori	 PGMs, Directed, Explaining Away
+ What is another name for the explaining away effect?	 Berkson's paradox or inter-causal reasoning	 PGMs, Directed, Explaining Away
+ What are Sigmoid Belief Nets?	 Hierarchical latent variable models with binary latent variables and logistic regression latent CPDs	 PGMs, Directed, Sigmoid
+ In terms of probability models, when do you have a sigmoid belief net?	 When you have binary latent variables and the latent CPDs are logistic regression models.	 PGMs, Directed, Sigmoid
+ What are the key elements when describing Conditional Independece in PGMs?	 X_A || X_B | X_C	 PGMs, Directed, Conditional Independence
+ What does it mean when we say that variables X_A and X_B are conditionally independent given X_C?	 Knowing X_C renders X_A and X_B unrelated.	 PGMs, Directed, Conditional Independence
+ What does an I-map represent?	 A graph encoding the conditional independence statements in a distribution.	 PGMs, Directed, Conditional Independence
+ What does it mean if a graph G is an I-map of a distribution p?	 I(G) ⊆ I(p), that is, all the CI statements encoded by the graph G are also true in p.	 PGMs, Directed, Conditional Independence
+" What is meant by a ""minimal"" I-map?"	 A graph where there is no sub-graph that is still an I-map of the given distribution.	 PGMs, Directed, Conditional Independence
+ What does it mean for path P to be d-separated by C?	 Either  P contains chain with node in C. P contains a tent with node in C or P contains collider with node not in C nor its descendant.	 PGMs, Directed, Global Markov
+ What are the three types of structures when considering d-separation	 Chain, Tent and Collider.	 PGMs, Directed, d-separation
+ How is a chain structure defined in a DAG with regards to CI?	 Observing a node separates its predecessor and successor.	 PGMs, Directed, d-separation
+ How is a tent (fork) structure defined in a DAG with regards to CI?	 Observing a root node separates its children nodes.	 PGMs, Directed, d-separation
+ How is a collider structure defined in a DAG with regards to CI?	 Observing a common child node makes its parent nodes dependent.	 PGMs, Directed, d-separation
+ How are conditional independencies related to d-separation in a DAG?	 X_A || X_B | X_C <=> A is d-separated from B given C.	 PGMs, Directed, d-separation
+" What does a ""Markov Blanket"" of node i mean?"	 It is the smallest set of nodes that render node i independent of the rest of the graph.	 PGMs, Directed, Markov Blanket
+ What is the Markov Blanket of a node i?	 mb(i) = ch(i) U pa(i) U copa(i) (children, parents and co-parents of the node).	 PGMs, Directed, Markov Blanket
+ What does local Markov property for DAGs mean?	 A node is conditionally independent of non-descendants given its parents.	 PGMs, Directed, Markov Properties
+" What does the ""ordered Markov property"" mean for a DAG?"	 Each node is conditionally independent of its predecessors (except parents) given its parents.	 PGMs, Directed, Markov Properties
+ What is the factorization property?	 Any distribution that is Markov to a graph, can be factored in terms of the Conditional Probability Distributions for every node.	 PGMs, Directed, Markov Properties
+ What is ancestral sampling?	 A sampling method where you sample parents before children using the topological ordering in a DAG.	 PGMs, Directed, Sampling
+" What does ""inference"" refer to in the context of PGMs?"	 Computing a posterior distribution over query nodes given observed values and marginalized over nuisance variables.	 PGMs, Directed, Inference
+" What is a ""posterior marginal"" of node i?"	 Posterior distribution of node i given observed evidence.	 PGMs, Directed, Inference
+ What is parameter learning in PGMs?	 estimating the parameters of a model given the data and its distribution	 PGMs, Directed, Learning
+ What is a linear-Gaussian SSM?	 A state-space model where the state transition and observation models are linear and have Gaussian noise.	 SSMs, Linear-Gaussian
+ What matrices and vectors define the linear model?	 Matrices Ft, Bt, Ht, Dt and vectors bt, dt.	 SSMs, Linear-Gaussian
+ What matrices define the Gaussian noise?	 The covariance matrices Qt and Rt.	 SSMs, Linear-Gaussian
+ What is the Kalman filter?	 An algorithm for exact Bayesian filtering for linear-Gaussian SSMs.	 SSMs, Kalman Filter
+ In the Kalman filter, what is performed in the prediction step?	 The one-step-ahead prediction for the hidden state.	 SSMs, Kalman Filter, Prediction
+" In the Kalman filter, what does the ""time update"" refer to?"	 The prediction step.	 SSMs, Kalman Filter, Prediction
+ What is the Kalman gain matrix?	 A weighting matrix used during the update step of the Kalman filter.	 SSMs, Kalman Filter, Update
+ In the Kalman filter, what is performed in the update step?	 The posterior given an observation.	 SSMs, Kalman Filter, Update
+" In the Kalman filter, what does ""measurement update"" refer to?"	 The update step.	 SSMs, Kalman Filter, Update
+" What is the ""residual error"" or ""innovation term""?"	 The difference between the observation and the prediction, yt - y_hat_t.	 SSMs, Kalman Filter, Update
+ What is the Kalman smoother (RTS smoother)?	 An algorithm for Bayesian smoothing for linear-Gaussian SSMs.	 SSMs, Kalman Smoother
+ What does RTS stand for?	 Rauch, Tung, and Striebel	 SSMs, Kalman Smoother
+ How are the distributions treated in the Kalman smoother?	 They are written in closed form	 SSMs, Kalman Smoother
+ What is the main goal of local linearization?	 Extend the Kalman filter and smoother to nonlinear systems.	 SSMs, Local Linearization
+ What does the extended Kalman filter use to address non-linear models?	 Linearize the dynamics and observations models using a first order Taylor expansion.	 SSMs, Local Linearization, EKF
+ What is the core idea of the extended Kalman filter?	 To approximate a non-stationary nonlinear dynamical system as a stationary linear one.	 SSMs, Local Linearization, EKF
+ What is required to apply local linearization?	 The system to be differentiable and invertible.	 SSMs, Local Linearization
+ What does the Jacobian allow us to do?	 Approximate the expectation of a non-linear function.	 SSMs, Local Linearization
+ What type of graphs do Message passing algorithms work best on?	 Sparse graphs	 Message Passing, Intro
+ What do message passing algorithms leverage for efficient posterior inference?	 CI properties encoded in the graph.	 Message Passing, Intro
+ On what principle are message passing algorithms based?	 Dynamic programming.	 Message Passing, Intro
+ What is the main principle of Dynamic Programming?	 Finding the global solution by finding local solutions to sub-problems.	 Message Passing, Intro
+ What do message passing algorithms maintain on nodes?	 Probability distributions (beliefs).	 Message Passing, Intro
+ How do nodes update beliefs in a message passing algorithm?	 Given evidence from some part of the graph	 Message Passing, Intro
+ What is passed between nodes in a message passing algorithm?	 Beliefs	 Message Passing, Intro
+ What are message passing algorithms also known as?	 Belief propagation (BP) algorithms.	 Message Passing, Intro
+ What are Probabilistic Graphical Models (PGMs)?	 Graph structures used to represent conditional dependencies and independencies in a set of random variables.	 PGMs, Intro
+ In a PGM, what do nodes represent?	 Random variables.	 PGMs, Intro
+ In a PGM, what do edges represent?	 Conditional dependence.	 PGMs, Intro
+ In a PGM, what does the lack of an edge represent?	 Conditional independence (CI).	 PGMs, Intro
+ What are the main types of graphical models?	 Directed, Undirected, and combinations of both.	 PGMs, Types
+ What is a State Space Model (SSM)?	 A model that describes a system using latent variables that evolve over time and are observed through a noisy process.	 SSMs, Intro
+ What are the three main components of an SSM?	 hidden (latent) state, observations and optional inputs.	 SSMs, Intro
+" What is ""state estimation"" in the context of SSMs?"	 Posterior inference about the hidden states.	 SSMs, State Estimation
+" What is ""filtering"" in the context of SSMs?"	 Estimating the hidden states sequentially using past observations.	 SSMs, Filtering
+" What is ""smoothing"" in the context of SSMs?"	 Estimating the hidden states using past and future observations (offline).	 SSMs, Smoothing
+ What is the goal of the Bayes filter?	 Recursively compute beliefs about the hidden states.	 SSMs, Filtering
+ What type of data the Bayes filter use?	 Online data stream.	 SSMs, Filtering
+ What is the prediction step in Bayes filter based on?	 The Chapman-Kolmogorov equation.	 SSMs, Filtering, Prediction
+ What is computed in the update step of the Bayes filter?	 The posterior using the observation.	 SSMs, Filtering, Update
+ What are FFBS used for?	 Combining Filtering (forward pass) with smoothing (backward pass)	 SSMs, Smoothing, FFBS
+ What is computed in the forward pass in the smoothing equations?	 The filter of the system.	 SSMs, Smoothing
+ What is computed in the backward pass in smoothing equations?	 The smoothing distributions.	 SSMs, Smoothing
+ What does the term Gaussian Ansatz refer to?	 the assumption that we can work with gaussian distributions	 SSMs, Gaussian Ansatz
+ What is considered in the linear-Gaussian model?	 The functions that are related to the SSM are linear and noise is Gaussian.	 SSMs, Gaussian Ansatz
+ What is loopy belief propagation?	 An approximation algorithm that applies belief propagation to graphs that contain loops.	 Message Passing, Loopy BP
+ What is variable elimination?	 An inference algorithm that simplifies a factor graph.	 Message Passing, VE
+ What does junction tree algorithm do?	 Creates a tree from a general graph to apply belief propagation.	 Message Passing, JTA
+ How is inference treated with regards to optimization?	 An approach that uses message passing to optimize parameters	 Message Passing, Optimization
+ What are undirected graphical models also known as?	 Markov random fields or Markov networks.	 PGMs, Undirected
+ What is a key difference between directed and undirected graphical models?	 Undirected models don't require specifying edge orientations.	 PGMs, Undirected
+ What is the underlying structure in undirected graphical models?	 An undirected graph.	 PGMs, Undirected
+ In an undirected graph, what do you associate to each maximal clique?	 A potential function.	 PGMs, Undirected, Joint Distribution
+ What is a clique in an undirected graph?	 A set of nodes that are all neighbors of each other.	 PGMs, Undirected, Joint Distribution
+ What is a maximal clique in an undirected graph?	 A clique that cannot be made larger without losing the clique property.	 PGMs, Undirected, Joint Distribution
+ What do maximal cliques help define in an undirected graph?	 A potential function is associated with each maximal clique.	 PGMs, Undirected, Joint Distribution
+ What is a potential function?	 Any non-negative function that relates the variables in the clique.	 PGMs, Undirected, Joint Distribution
+ What is the Hammersley-Clifford theorem about?	 A theorem describing the structure of a distribution of a UPGM, by relating its joint distribution to the potential functions.	 PGMs, Undirected, Joint Distribution
+ According to the Hammersley-Clifford Theorem, how is the joint distribution structured in an UPGM?	 It is proportional to the product of potential functions over maximal cliques.	 PGMs, Undirected, Joint Distribution
+ What is a partition function?	 A normalization factor that makes the joint distribution sum to one	 PGMs, Undirected, Joint Distribution
+ What is a Gibbs distribution?	 An alternative way to represent a joint distribution based on the energy of the model.	 PGMs, Undirected, Gibbs
+ How is an energy based model defined in terms of the energy?	 The probability is related to the exponential of the negative energy	 PGMs, Undirected, Gibbs
+ What is a Fully Visible Markov Random Field?	 A Markov Random field where there are no latent variables.	 PGMs, Undirected, MRF
+ What is a MRF with latent variables?	 A Markov Random Field that has latent variables	 PGMs, Undirected, MRF
+ What is a Maximum Entropy Model?	 Models that are based on the principle of maximizing entropy while satisfying constraints.	 PGMs, Undirected, Maximum Entropy
+ What is a Gaussian MRF?	 A Markov Random Field that has a joint Gaussian distribution.	 PGMs, Undirected, Gaussian
+ How is conditional independence defined in undirected graphs?	 Simple graph separation.	 PGMs, Undirected, CI
+ What is the undirected global Markov property?	 A | B | C if and only if C separates A from B in the graph.	 PGMs, Undirected, CI
+ What does a node being separated by C from other nodes mean in UPGMs?	 If you remove C from the graph, there is no path connecting A to B.	 PGMs, Undirected, CI
+ What is a local Markov property in an UPGM?	 A node is conditionally independent of all other nodes except its Markov Blanket	 PGMs, Undirected, Markov Properties
+ What is the closure of a node?	 The Markov blanket of a node and the node itself.	 PGMs, Undirected, Markov Properties
+ What is a node's Markov blanket?	 The set of immediate neighbors of a node in an undirected graph.	 PGMs, Undirected, Markov Properties
+ What is the pairwise Markov property for UPGMs?	 Two nodes are conditionally independent given the rest if there's no edge between them.	 PGMs, Undirected, Markov Properties
+ Why is it useful to convert a DPGM to an UPGM?	 Because determining conditional independence relationships is easier by using simple graph separation.	 PGMs, Conversion
+ What do you need to do when converting chain or tent structures from a DPGM to a UPGM?	 Drop the orientation of the edges	 PGMs, Conversion
+ What do you need to do when converting collider structures from a DPGM to a UPGM?	 Add an edge between the co-parents and drop the orientation	 PGMs, Conversion
+ What is moralization in the context of PGMs?	 Converting a DPGM into an UPGM using the previous rules.	 PGMs, Conversion, Moralization
+ What is an ancestral graph?	 A graph that takes into consideration only a specific set of variables.	 PGMs, Conversion, Moralization
+ Why do you use MCMC for sampling from UPGMs?	 Because it can be quite slow to do otherwise.	 PGMs, Undirected, Generation
+" What is ""inference"" about in UPGMs?"	 About computing the posterior distribution over nodes.	 PGMs, Undirected, Inference
+ Why is the learning process computationally expensive in UPGMs?	 Because the partition function is doubly intractable	 PGMs, Undirected, Learning
+ What are CRF?	 Conditional Random Fields.	 PGMs, CRFs
+ What is the core difference between Directed PGMs and Undirected PGMs?	 The use and absence of edge directions.	 PGMs, Comparison
+ What are Factor Graphs?	 Graphical models that explicitly represent factors in a factorization.	 PGMs, Factor Graphs
+ What are Bipartite factor graphs?	 Factor graphs that have nodes separated by types.	 PGMs, Factor Graphs
+ What are Forney Factor Graphs?	 Factor graphs where the factors are represented as nodes.	 PGMs, Factor Graphs
+ What is a Structural Causal Model?	 A triple that combines exogenous, endogenous variables and functions.	 PGMs, Structural Causal Models
+ What does the causal Markov assumption states?	 That all of the causal relevant factors are included in the model.	 PGMs, Structural Causal Models
+ What is a structural equation model?	 A structural causal model with linear functional relationships and Gaussian exogenous variables.	 PGMs, Structural Equation Models
+" What is ""do operator"" in Structural Causal Models?"	 An action that sets a variable to a given value, which makes the graph causal.	 PGMs, Interventions
+ What are counterfactuals?	 Reasoning about what would have happened if things had been different.	 PGMs, Counterfactuals
+ How are observational and interventional studies defined in regards to counterfactuals?	 observational studies predict effects of causes, interventional studies predict causes of effects.	 PGMs, Counterfactuals

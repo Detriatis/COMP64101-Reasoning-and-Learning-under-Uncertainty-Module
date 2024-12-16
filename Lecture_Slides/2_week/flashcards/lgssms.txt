@@ -1,0 +1,55 @@
+Front: What is a linear-Gaussian SSM?
+Back: A state-space model where the state transition and observation models are linear and have Gaussian noise.
+Tags: SSMs, Linear-Gaussian
+Front: What matrices and vectors define the linear model?
+Back: Matrices Ft, Bt, Ht, Dt and vectors bt, dt.
+Tags: SSMs, Linear-Gaussian
+Front: What matrices define the Gaussian noise?
+Back: The covariance matrices Qt and Rt.
+Tags: SSMs, Linear-Gaussian
+Front: What is the Kalman filter?
+Back: An algorithm for exact Bayesian filtering for linear-Gaussian SSMs.
+Tags: SSMs, Kalman Filter
+Front: In the Kalman filter, what is performed in the prediction step?
+Back: The one-step-ahead prediction for the hidden state.
+Tags: SSMs, Kalman Filter, Prediction
+Front: In the Kalman filter, what does the "time update" refer to?
+Back: The prediction step.
+Tags: SSMs, Kalman Filter, Prediction
+Front: What is the Kalman gain matrix?
+Back: A weighting matrix used during the update step of the Kalman filter.
+Tags: SSMs, Kalman Filter, Update
+Front: In the Kalman filter, what is performed in the update step?
+Back: The posterior given an observation.
+Tags: SSMs, Kalman Filter, Update
+Front: In the Kalman filter, what does "measurement update" refer to?
+Back: The update step.
+Tags: SSMs, Kalman Filter, Update
+Front: What is the "residual error" or "innovation term"?
+Back: The difference between the observation and the prediction, yt - y_hat_t.
+Tags: SSMs, Kalman Filter, Update
+Front: What is the Kalman smoother (RTS smoother)?
+Back: An algorithm for Bayesian smoothing for linear-Gaussian SSMs.
+Tags: SSMs, Kalman Smoother
+Front: What does RTS stand for?
+Back: Rauch, Tung, and Striebel
+Tags: SSMs, Kalman Smoother
+Front: How are the distributions treated in the Kalman smoother?
+Back: They are written in closed form
+Tags: SSMs, Kalman Smoother
+Inference Based on Local Linearization
+Front: What is the main goal of local linearization?
+Back: Extend the Kalman filter and smoother to nonlinear systems.
+Tags: SSMs, Local Linearization
+Front: What does the extended Kalman filter use to address non-linear models?
+Back: Linearize the dynamics and observations models using a first order Taylor expansion.
+Tags: SSMs, Local Linearization, EKF
+Front: What is the core idea of the extended Kalman filter?
+Back: To approximate a non-stationary nonlinear dynamical system as a stationary linear one.
+Tags: SSMs, Local Linearization, EKF
+Front: What is required to apply local linearization?
+Back: The system to be differentiable and invertible.
+Tags: SSMs, Local Linearization
+Front: What does the Jacobian allow us to do?
+Back: Approximate the expectation of a non-linear function.
+Tags: SSMs, Local Linearization
